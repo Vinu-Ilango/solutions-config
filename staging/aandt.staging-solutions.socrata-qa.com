@@ -14,7 +14,7 @@
       "dataset_domain": "appraisalandtax.demo.socrata.com",
       "dataset_id": "rf3x-u64k",
       "parent_queries": [
-        "select *,avg(asr) over (partition by land_use_type='commercial') as median_asr, 1-asr/median_asr as asr_deviation_from_median"
+        "select :*, *, avg(asr) over (partition by land_use_type='commercial') as median_asr, 1-asr/median_asr as asr_deviation_from_median"
       ],
       "fields": {
         "date_column": "saledt",
