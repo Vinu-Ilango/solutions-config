@@ -28,10 +28,7 @@
           "column": "permit_type_definition",
           "name": "Permit Type"
         },
-        {
-          "column": "councildist",
-          "name": "Council District"
-        },
+
         {
           "column": "status",
           "name": "Permit Status"
@@ -40,10 +37,6 @@
       "group_by_entries": [{
           "column": "permit_type_definition",
           "name": "Permit Type"
-        },
-        {
-          "column": "councildist",
-          "name": "Council District"
         },
         {
           "column": "status",
