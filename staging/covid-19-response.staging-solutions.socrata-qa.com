@@ -31,8 +31,8 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "elumitas.test-socrata.com",
-      "dataset_id": "99hv-bkmr",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "6ide-cs9c",
       "parent_queries": [],
       "fields": {
         "date_column": "last_update_date",
