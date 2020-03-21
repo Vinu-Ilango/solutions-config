@@ -39,7 +39,8 @@
         "incident_type": "classification",
         "location": "geocoded_column",
         "mquc-phjc": ":@computed_region_mquc_phjc",
-        "ctwz-r3ic": ":@computed_region_ctwz_r3ic"
+        "ctwz-r3ic": ":@computed_region_ctwz_r3ic",
+        "mpe2-7au2": ":@computed_region_mpe2_7au2"
       },
       "dimension_entries": [
         {
@@ -455,7 +456,7 @@
             "shape_name": "name",
             "shape_description": "name"
           },
-          "color": "#32a889"
+          "color": "#add8e6"
         },
         {
           "shape_dataset_domain": "covid-19-response.demo.socrata.com",
@@ -467,7 +468,19 @@
             "shape_name": "name",
             "shape_description": "name"
           },
-          "color": "#32a889"
+          "color": "#add8e6"
+        },
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mpe2-7au2",
+          "shape_name": "New Jersey Census",
+          "fields": {
+            "shape": "multipolygon",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
         }
       ]
     }
