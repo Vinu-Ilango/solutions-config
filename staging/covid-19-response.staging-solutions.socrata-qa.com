@@ -38,7 +38,8 @@
         "date_column": "last_update_date",
         "incident_type": "classification",
         "location": "geocoded_column",
-        "mquc-phjc": ":@computed_region_mquc_phjc"
+        "mquc-phjc": ":@computed_region_mquc_phjc",
+        "ctwz-r3ic": ":@computed_region_ctwz_r3ic"
       },
       "dimension_entries": [
         {
@@ -455,7 +456,19 @@
             "shape_description": "name"
           },
           "color": "#32a889"
-        }        
+        },
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "ctwz-r3ic",
+          "shape_name": "Counties",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#32a889"
+        }
       ]
     }
   ]
