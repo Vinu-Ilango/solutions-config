@@ -332,7 +332,13 @@
       ],
       "filter_by_entries": [],
       "leaf_page_entries": [],
-      "quick_filter_entries": [],
+      "quick_filter_entries": [
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+          "renderType": "text"
+        }
+      ],
       "map": {
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
