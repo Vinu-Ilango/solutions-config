@@ -352,7 +352,7 @@
         },
         {
           "name": "Notes",
-          "column": "message"
+          "column": "notes_message"
         }
       ],
       "quick_filter_entries": [
