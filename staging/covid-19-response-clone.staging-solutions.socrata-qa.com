@@ -80,7 +80,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -337,7 +337,6 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
