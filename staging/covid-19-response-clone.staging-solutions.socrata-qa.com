@@ -58,9 +58,23 @@
       ],
       "view_entries": [
         {
-          "name": "# of hospitals",
+          "name": "# of hospitals reporting",
           "primary_metric name": "Hospitals",
           "column": "npi",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [],
+          "visualization": {
+            "default_view": "map",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "# of non-reporting hospitals",
+          "primary_metric name": "Hospitals",
+          "column": "case(last_updated_ts is null, 1)",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
