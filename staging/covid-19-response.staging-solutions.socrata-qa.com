@@ -344,8 +344,25 @@
           }
         },
         {
-          "name": "# of hospitals that have not reported cases in the last 72 hours",
+          "name": "% of hospitals that have reported cases in the last 72 hours",
           "primary_metric name": "Cases reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "(sum(case(case_reported_72_hours = true, 1, true, 0))/count(npi))*100",
+          "aggregate_type": "",
+          "precision": "2",
+          "prefix": "",
+          "suffix": "%",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "# of hospitals that have not reported cases in the last 72 hours",
+          "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
           "column": "sum(case(case_reported_72_hours = false, 1, true, 0))",
@@ -353,6 +370,23 @@
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "% of hospitals that have not reported cases in the last 72 hours",
+          "primary_metric name": "Cases not reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "(sum(case(case_reported_72_hours = false, 1, true, 0))/count(npi))*100",
+          "aggregate_type": "",
+          "precision": "2",
+          "prefix": "",
+          "suffix": "%",
           "tags": [
           ],
           "visualization": {
