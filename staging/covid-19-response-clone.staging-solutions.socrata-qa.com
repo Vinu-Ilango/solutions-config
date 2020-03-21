@@ -79,7 +79,7 @@
               ],
           "column": "npi",
           "start_date_override_and_ignore": "true",
-          "end_date_override_and_gnore": "true",
+          "end_date_override_and_ignore": "true",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
