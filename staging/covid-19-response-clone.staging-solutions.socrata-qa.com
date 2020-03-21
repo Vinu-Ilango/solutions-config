@@ -99,7 +99,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -118,7 +118,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -134,7 +134,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -150,7 +150,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -166,7 +166,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -185,7 +185,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -204,7 +204,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -223,7 +223,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -239,7 +239,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -255,7 +255,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -271,7 +271,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Ventilators Health"
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -325,10 +325,42 @@
             "default_view": "snapshot",
             "snapshot": {}
           }
+        },
+        {
+          "name": "# of hospitals that have reported cases in the last 72 hours",
+          "primary_metric name": "Cases reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
+          "aggregate_type": "",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+            "Ventilator Access"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
         }
       ],
-      "filter_by_entries": [],
-      "leaf_page_entries": [],
+      "filter_by_entries": [
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "classification",
+          "name": "Classification"
+        },
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation"
+        },
+        {
+          "column": "provider_business_mailing_1",
+          "name": "State"
+        }
+      ],
       "quick_filter_entries": [],
       "map": {
         "centerLat": "34.263423913021555",
