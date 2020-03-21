@@ -38,7 +38,7 @@
       "parent_dataset_join_column": "npi",
       "parent_queries": [],
       "fields": {
-        "date_column": "last_update_date",
+        "date_column": "last_updated_ts",
         "incident_type": "classification",
         "location": "geocoded_column"
       },
