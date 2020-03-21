@@ -68,7 +68,7 @@
             }
           },
           "fields": {
-            "date_column": "issueddate"
+            "date_column": "issued_date"
           }
         },
         {
