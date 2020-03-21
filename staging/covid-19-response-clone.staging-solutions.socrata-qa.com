@@ -354,6 +354,12 @@
           "renderType": "text"
         }
       ],
+      "filter_by_entries": [
+        {
+          "name": "Assignee",
+          "column": "notes_assignee"
+        }
+      ],
       "map": {
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
