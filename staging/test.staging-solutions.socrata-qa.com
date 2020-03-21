@@ -1,5 +1,7 @@
 {
   "application_use": "demo",
+  "is_private": "true",
+  "solutions_app_users": ["*@elumitas.com"],
   "branding": {
     "browser_title": "Solutions | Test ",
     "title": "Solutions - Test"
