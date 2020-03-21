@@ -13,7 +13,6 @@
     "Districts and counties"
   ],
   "show_share_via_email": "false",
-  "is_private": "false",
   "date": {
     "startDate": "2019-10-01",
     "endDate": "2019-12-31"
