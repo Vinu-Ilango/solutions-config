@@ -330,8 +330,23 @@
           }
         }
       ],
-      "filter_by_entries": [],
-      "leaf_page_entries": [],
+      "filter_by_entries": [
+      
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "classification",
+          "name": "Classification"
+        },
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation"
+        },
+        {
+          "column": "provider_business_mailing_1",
+          "name": "State"
+        }
+      ],
       "quick_filter_entries": [
         {
           "name": "Noted Assignee",
