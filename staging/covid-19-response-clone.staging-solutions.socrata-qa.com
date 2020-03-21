@@ -345,6 +345,14 @@
         {
           "column": "provider_business_mailing_1",
           "name": "State"
+        },
+        {
+          "name": "Assignee",
+          "column": "notes_assignee"
+        },
+        {
+          "name": "Notes",
+          "column": "message"
         }
       ],
       "quick_filter_entries": [
