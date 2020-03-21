@@ -37,7 +37,8 @@
       "fields": {
         "date_column": "last_update_date",
         "incident_type": "classification",
-        "location": "geocoded_column"
+        "location": "geocoded_column",
+        "mquc-phjc": ":@computed_region_mquc_phjc"
       },
       "dimension_entries": [
         {
@@ -442,7 +443,20 @@
           }
         ]
       },
-      "shape_dataset_entries": []
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#32a889"
+        }        
+      ]
     }
   ]
 }
