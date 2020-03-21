@@ -8,7 +8,7 @@
   "exploration_card_entries": [
     {
       "name": "COVID-19 Hospital Data Submission Tracker",
-      "link": "covid-19-beds.projects.socrata.com",
+      "link": "covid-19-beds-projects.socrata.com",
       "exploration_content": "COVID-19 Response"
     },
     {
@@ -33,7 +33,9 @@
       "description": "",
       "dataset_domain": "elumitas.test-socrata.com",
       "dataset_id": "99hv-bkmr",
-      "parent_queries": [],
+      "parent_queries": [
+        "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi"
+      ],
       "fields": {
         "date_column": "last_update_date",
         "incident_type": "classification",
@@ -72,6 +74,7 @@
           "name": "# of hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '1'"
           ],
           "column": "npi",
@@ -80,7 +83,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Beds & Occupancy"
+            "Occupancy Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -91,6 +94,7 @@
           "name": "# of hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '2'"
           ],
           "column": "npi",
@@ -110,6 +114,7 @@
           "name": "# of hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '3'"
           ],
           "column": "npi",
@@ -177,6 +182,7 @@
           "name": "# of hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '1'"
           ],
           "column": "npi",
@@ -196,6 +202,7 @@
           "name": "# of hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '2'"
           ],
           "column": "npi",
@@ -215,6 +222,7 @@
           "name": "# of hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
+            "select npi,entity_type_code,classification,specialization,replacement_npi,employer_identification_number,provider_organization_name,provider_last_name_legal,provider_first_name,provider_middle_name,provider_name_prefix_text,provider_name_suffix_text,provider_credential_text,provider_other_organization,provider_other_organization_1,provider_other_last_name,provider_other_first_name,provider_other_middle_name,provider_other_name_prefix,provider_other_name_suffix,provider_other_credential,provider_other_last_name_1,provider_first_line_business,provider_second_line_business,provider_business_mailing,provider_business_mailing_1,provider_business_mailing_2,provider_business_mailing_3,provider_business_mailing_4,provider_business_mailing_5,provider_first_line_business_1,provider_second_line_business_1,provider_business_practice,provider_business_practice_1,provider_business_practice_2,provider_business_practice_3,provider_business_practice_4,provider_business_practice_5,provider_enumeration_date,last_update_date,authorized_official_last,authorized_official_first,authorized_official_telephone,full_name,healthcare_provider_taxonomy,geocoded_column,user_id,hospital_id,last_updated_ts,today,cnv_bed_capacity,cnv_bed_capacity_cc,exp_bed_capacity,exp_bed_capacity_cc,total_bed_capacity,total_bed_capacity_cc,disaster_bed_opened,disaster_bed_opened_cc,disaster_exp_bed_opened,disaster_exp_bed_opened_cc,disaster_bed_census,disaster_bed_census_cc,total_current_beds,total_current_beds_cc,beds_occupied,beds_occupied_cc,occupancy_rate,occupancy_rate_cc,ventilator_capacity,ventilator_in_use,ventilators_not_in_use,ventilators_use_rate,emergency_visits_24_hrs,emergency_treatment_areas,covid_bed_designation,covid_patient_count,covid_census,case_is_reported,occupancy_health,ventilators_use_health,case_reported_72_hours,@notes.hospital_id,@notes.message,@notes.assignee join @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '3'"
           ],
           "column": "npi",
@@ -329,14 +337,13 @@
         {
           "name": "# of hospitals that have reported cases in the last 72 hours",
           "primary_metric name": "Cases reported - last 72 hours",
-          "parent_queries": [
-          ],
           "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
           "aggregate_type": "",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
+            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
