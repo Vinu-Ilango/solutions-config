@@ -58,9 +58,14 @@
       ],
       "view_entries": [
         {
-          "name": "# of hospitals reporting",
+          "name": "# of non-reporting hospitals",
           "primary_metric name": "Hospitals",
+          "parent_queries": [
+              "select * where last_updated_ts is null"
+              ],
           "column": "npi",
+          "start_date_override_and_ignore": "true",
+          "end_date_override_and_ignore": "true",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
@@ -72,14 +77,9 @@
           }
         },
         {
-          "name": "# of non-reporting hospitals",
+          "name": "# of hospitals reporting",
           "primary_metric name": "Hospitals",
-          "parent_queries": [
-              "select * where last_updated_ts is null"
-              ],
           "column": "npi",
-          "start_date_override_and_ignore": "true",
-          "end_date_override_and_ignore": "true",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
