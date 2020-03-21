@@ -3,7 +3,7 @@
   "is_private": "true",
   "solutions_app_users": ["*@elumitas.com"],
   "branding": {
-    "browser_title": "Solutions | Test ",
+    "browser_title": "Test Solutions Staging",
     "title": "Solutions - Test"
   },
   "tag_list": [
