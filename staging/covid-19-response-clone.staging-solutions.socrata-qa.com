@@ -8,7 +8,7 @@
   "exploration_card_entries": [
     {
       "name": "COVID-19 Hospital Data Submission Tracker",
-      "link": "covid-19-beds-projects.socrata.com",
+      "link": "covid-19-beds.projects.socrata.com",
       "exploration_content": "COVID-19 Response"
     },
     {
@@ -31,13 +31,12 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "elumitas.test-socrata.com",
-      "dataset_id": "99hv-bkmr",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "6ide-cs9c",
       "notes_dataset_id": "q9jh-eg7s",
-      "notes_dataset_join_condition": "hospital_id=npi",
-      "parent_queries": [
-        "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi"
-      ],
+      "notes_dataset_join_column": "hospital_id",
+      "parent_dataset_join_column": "npi",
+      "parent_queries": [],
       "fields": {
         "date_column": "last_update_date",
         "incident_type": "classification",
@@ -76,7 +75,6 @@
           "name": "# of hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '1'"
           ],
           "column": "npi",
@@ -96,7 +94,6 @@
           "name": "# of hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '2'"
           ],
           "column": "npi",
@@ -116,7 +113,6 @@
           "name": "# of hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where occupancy_health = '3'"
           ],
           "column": "npi",
@@ -184,7 +180,6 @@
           "name": "# of hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '1'"
           ],
           "column": "npi",
@@ -204,7 +199,6 @@
           "name": "# of hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '2'"
           ],
           "column": "npi",
@@ -224,7 +218,6 @@
           "name": "# of hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select *,@notes.message as note_message,@notes.assignee as note_assignee LEFT OUTER JOIN @q9jh-eg7s as notes on @notes.hospital_id=npi",
             "select * where ventilators_use_health = '3'"
           ],
           "column": "npi",
@@ -335,47 +328,11 @@
             "default_view": "snapshot",
             "snapshot": {}
           }
-        },
-        {
-          "name": "# of hospitals that have reported cases in the last 72 hours",
-          "primary_metric name": "Cases reported - last 72 hours",
-          "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
-          "aggregate_type": "",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
         }
       ],
-      "filter_by_entries": [
-      ],
-      "leaf_page_entries": [
-        {
-          "column": "classification",
-          "name": "Classification"
-        },
-        {
-          "column": "provider_organization_name",
-          "name": "Organisation"
-        },
-        {
-          "column": "provider_business_mailing_1",
-          "name": "State"
-        }
-      ],
-      "quick_filter_entries": [ 
-        {
-          "name": "Notes Assignee",
-          "column": "notes_assignee",
-          "renderType": "text"
-        }
-      ],
+      "filter_by_entries": [],
+      "leaf_page_entries": [],
+      "quick_filter_entries": [],
       "map": {
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
