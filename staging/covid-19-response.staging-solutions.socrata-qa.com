@@ -337,7 +337,23 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Data Quality"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "# of hospitals that have not reported cases in the last 72 hours",
+          "primary_metric name": "Cases reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "sum(case(case_reported_72_hours = false, 1, true, 0))",
+          "aggregate_type": "",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
           ],
           "visualization": {
             "default_view": "snapshot",
