@@ -58,7 +58,7 @@
       ],
       "view_entries": [
         {
-          "name": "# of non-reporting hospitals",
+          "name": "Hospitals Missing Reports",
           "primary_metric name": "Hospitals",
           "parent_queries": [
               "select * where last_updated_ts is null"
@@ -77,7 +77,7 @@
           }
         },
         {
-          "name": "# of hospitals reporting",
+          "name": "Hospitals Reporting",
           "primary_metric name": "Hospitals",
           "column": "npi",
           "aggregate_type": "count",
@@ -91,7 +91,7 @@
           }
         },
         {
-          "name": "# of hospitals with GREEN Occupancy Health",
+          "name": "Hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
             "select * where occupancy_health = '1'"
@@ -110,7 +110,7 @@
           }
         },
         {
-          "name": "# of hospitals with YELLOW Occupancy Health",
+          "name": "Hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
             "select * where occupancy_health = '2'"
@@ -129,7 +129,7 @@
           }
         },
         {
-          "name": "# of hospitals with RED Occupancy Health",
+          "name": "Hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
             "select * where occupancy_health = '3'"
@@ -196,7 +196,7 @@
           }
         },
         {
-          "name": "# of hospitals with GREEN Ventilator Health",
+          "name": "Hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '1'"
@@ -215,7 +215,7 @@
           }
         },
         {
-          "name": "# of hospitals with YELLOW Ventilator Health",
+          "name": "Hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '2'"
@@ -234,7 +234,7 @@
           }
         },
         {
-          "name": "# of hospitals with RED Ventilator Health",
+          "name": "Hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '3'"
