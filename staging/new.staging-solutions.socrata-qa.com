@@ -1,5 +1,7 @@
 {
   "application_use": "live",
+   "is_private": "true",
+  "solutions_app_users": ["*@elumitas.com"],
   "branding": {
     "browser_title": "Assessment Connect",
     "title": "Assessment Connect",
