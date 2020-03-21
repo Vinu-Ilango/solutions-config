@@ -74,7 +74,12 @@
         {
           "name": "# of non-reporting hospitals",
           "primary_metric name": "Hospitals",
-          "column": "case(last_updated_ts is null, 1)",
+          "parent_queries": [
+              "select * where last_updated_ts is null"
+              ],
+          "column": "npi",
+          "start_date_override_and_ignore": "true",
+          "end_date_override_and_gnore": "true",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
