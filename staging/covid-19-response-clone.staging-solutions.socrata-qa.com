@@ -31,8 +31,8 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "6ide-cs9c",
+      "dataset_domain": "elumitas.test-socrata.com",
+      "dataset_id": "99hv-bkmr",
       "notes_dataset_id": "q9jh-eg7s",
       "notes_dataset_join_column": "hospital_id",
       "parent_dataset_join_column": "npi",
