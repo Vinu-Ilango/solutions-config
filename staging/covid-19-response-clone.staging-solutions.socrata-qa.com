@@ -8,7 +8,7 @@
   "exploration_card_entries": [
     {
       "name": "COVID-19 Hospital Data Submission Tracker",
-      "link": "covid-19-beds-projects.socrata.com",
+      "link": "covid-19-beds.projects.socrata.com",
       "exploration_content": "COVID-19 Response"
     },
     {
