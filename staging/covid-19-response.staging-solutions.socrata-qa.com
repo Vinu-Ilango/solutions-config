@@ -31,8 +31,8 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "6ide-cs9c",
+      "dataset_domain": "elumitas.test-socrata.com",
+      "dataset_id": "99hv-bkmr",
       "parent_queries": [],
       "fields": {
         "date_column": "last_update_date",
@@ -80,7 +80,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -337,7 +337,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Ventilator Access"
+            "Data Quality"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -345,8 +345,22 @@
           }
         }
       ],
-      "filter_by_entries": [],
-      "leaf_page_entries": [],
+      "filter_by_entries": [
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "classification",
+          "name": "Classification"
+        },
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation"
+        },
+        {
+          "column": "provider_business_mailing_1",
+          "name": "State"
+        }
+      ],
       "quick_filter_entries": [],
       "map": {
         "centerLat": "34.263423913021555",
