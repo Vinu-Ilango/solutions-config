@@ -801,8 +801,8 @@
     },
     {
       "name": "Expense Details",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "drvx-98uq",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "b8th-49xx",
       "fields": {
         "date_column": "date"
       },
@@ -1120,8 +1120,8 @@
     },
     {
       "name": "Budgeted Revenues",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "8mx7-tp5t",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "8fbd-mbv7",
       "fields": {
         "date_column": "fiscalmonth"
       },
@@ -1900,7 +1900,7 @@
     },
     {
       "name": "Payroll & Compensation",
-      "dataset_domain": "portlandme.data.socrata.com",
+      "dataset_domain": "dedhamma.data.socrata.com",
       "dataset_id": "4fix-tsif",
       "fields": {
         "date_column": "checkdate"
@@ -2035,8 +2035,8 @@
     },
     {
       "name": "Employee Details",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "9e9t-jury",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "mwgb-ej3w",
       "fields": {
         "date_column": "last_updated_date"
       },
@@ -2374,8 +2374,8 @@
     },
     {
       "name": "Employee Turnover",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "9e9t-jury",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "mwgb-ej3w",
       "fields": {
         "date_column": "inactivedate"
       },
@@ -2465,8 +2465,8 @@
     },
     {
       "name": "Employee Actions",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "89jm-4cm3",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "fi9w-825h",
       "fields": {
         "date_column": "effectivedate"
       },
@@ -2562,8 +2562,8 @@
     },
     {
       "name": "Bids per Opportunity",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "c3bq-eivp",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "n62s-h55a",
       "parent_queries": [
         "select min(opportunityname) as oppurtunity_name, min(datesubmitted) as date_submitted, min(biddername) as bidder_name, min(requestingdepartment) as requesting_department, count(bidderid) as bidder_count, opportunityid group by opportunityid "
       ],
@@ -2621,8 +2621,8 @@
     },
     {
       "name": "Applicants per Open Position",
-      "dataset_domain": "portlandme.data.socrata.com",
-      "dataset_id": "y3ez-h7va",
+      "dataset_domain": "dedhamma.data.socrata.com",
+      "dataset_id": "jshh-jxb8",
       "parent_queries": [
         "select min(jobopening) as job_opening, min(city) as city, count(applicantid) as applicant_id, jobopeningrequisitionnumber where applicationdate between {START_DATE} and {END_DATE} group by jobopeningrequisitionnumber"
       ],
