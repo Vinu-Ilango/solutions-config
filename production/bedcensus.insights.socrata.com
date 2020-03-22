@@ -1,6 +1,7 @@
 {
   "application_use": "production",
   "is_private": "true",
+  "solutions_app_users": ["*@elumitas.com", "*@tylertech.com", "*@socrata.com"],
   "branding": {
     "browser_title": "COVID-19 Response",
     "title": "COVID-19 Response",
