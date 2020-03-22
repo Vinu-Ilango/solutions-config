@@ -34,6 +34,67 @@
   ],
   "template_entries": [
     {
+      "name": "Notes & Assignments",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "8tv7-b3ra",
+      "fields": {
+        "date_column": "last_called"
+      },
+      "dimension_entries": [
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "Hospitals Called",
+          "primary_metric name": "Hospitals Called",
+          "column": "hospital_id",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+            "Submission Tracking"
+          ],
+          "visualization": {
+            "default_view": "table"
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Assignee",
+          "column": "assignee"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        },
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "message",
+          "name": "Notes"
+        },
+        {
+          "column": "last_called",
+          "name": "Last Called"
+        }
+      ]
+    },
+    {
       "name": "COVID-19 Response",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
@@ -409,67 +470,6 @@
             "shape_description": "name"
           },
           "color": "#add8e6"
-        }
-      ]
-    },
-    {
-      "name": "Notes & Assignments",
-      "description": "",
-      "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "8tv7-b3ra",
-      "fields": {
-        "date_column": "last_called"
-      },
-      "dimension_entries": [
-        {
-          "column": "assignee",
-          "name": "Assignee"
-        },
-        {
-          "column": "hospital_id",
-          "name": "Hospital ID"
-        }
-      ],
-      "view_entries": [
-        {
-          "name": "Hospitals Called",
-          "primary_metric name": "Hospitals Called",
-          "column": "hospital_id",
-          "start_date_override_and_ignore": "true",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Submission Tracking"
-          ],
-          "visualization": {
-            "default_view": "table"
-          }
-        }
-      ],
-      "filter_by_entries": [
-        {
-          "name": "Assignee",
-          "column": "assignee"
-        }
-      ],
-      "leaf_page_entries": [
-        {
-          "column": "hospital_id",
-          "name": "Hospital ID"
-        },
-        {
-          "column": "assignee",
-          "name": "Assignee"
-        },
-        {
-          "column": "message",
-          "name": "Notes"
-        },
-        {
-          "column": "last_called",
-          "name": "Last Called"
         }
       ]
     }
