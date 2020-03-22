@@ -14,13 +14,13 @@
   },
   "exploration_card_entries": [
     {
-      "name": "COVID-19 Hospital Data Submission Tracker",
-      "link": "covid-19-beds.projects.socrata.com",
+      "name": "COVID-19 Hospital Data Submission Form",
+      "link": "http://bedcensus.socrata.com/",
       "exploration_content": "COVID-19 Response"
     },
     {
-      "name": "COVID-19 Hospital Beds Census",
-      "link": "covid-19-beds.projects.socrata.com",
+      "name": "COVID-19 Global Spread",
+      "link": "https://covid-19-response.demo.socrata.com/stories/s/fz46-mgni",
       "exploration_content": "COVID-19 Response"
     }
   ],
