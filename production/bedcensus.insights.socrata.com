@@ -1,8 +1,12 @@
 {
   "application_use": "live",
   "is_private": "true",
-  "solutions_app_users": ["*@elumitas.com", "*@tylertech.com", "*@socrata.com"],
-  "allow_leaf_page_from_table":"true",
+  "solutions_app_users": [
+    "*@elumitas.com",
+    "*@tylertech.com",
+    "*@socrata.com"
+  ],
+  "allow_leaf_page_from_table": "true",
   "branding": {
     "browser_title": "COVID-19 Response",
     "title": "COVID-19 Response",
@@ -66,8 +70,8 @@
           "name": "Hospitals Missing Reports",
           "primary_metric name": "Hospitals",
           "parent_queries": [
-              "select :*,* where last_updated_ts is null"
-              ],
+            "select :*,* where last_updated_ts is null"
+          ],
           "column": "npi",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
@@ -110,8 +114,8 @@
           }
         },
         {
-          "name": "Hospitals with GREEN Occupancy Health",
-          "primary_metric name": "Hospitals with green occupancy",
+          "name": "Submitting Hospitals with Low Reported Occupancy",
+          "primary_metric name": "Hospitals with low occupancy",
           "parent_queries": [
             "select :*,* where occupancy_health = '1'"
           ],
@@ -129,8 +133,8 @@
           }
         },
         {
-          "name": "Hospitals with YELLOW Occupancy Health",
-          "primary_metric name": "Hospitals with yellow occupancy",
+          "name": "Submitting Hospitals with Medium Reported Occupancy",
+          "primary_metric name": "Hospitals with medium occupancy",
           "parent_queries": [
             "select :*,* where occupancy_health = '2'"
           ],
@@ -148,8 +152,8 @@
           }
         },
         {
-          "name": "Hospitals with RED Occupancy Health",
-          "primary_metric name": "Hospitals with red occupancy",
+          "name": "Submitting Hospitals with Low Reported Occupancy",
+          "primary_metric name": "Hospitals with low occupancy",
           "parent_queries": [
             "select :*,* where occupancy_health = '3'"
           ],
@@ -167,8 +171,8 @@
           }
         },
         {
-          "name": "% of hospitals with GREEN Occupancy Health",
-          "primary_metric name": "Hospitals with green occupancy health",
+          "name": "% of Submitting Hospitals with Low Reported Occupancy",
+          "primary_metric name": "% of Hospitals with low occupancy",
           "column": "(sum(case(occupancy_health == 1, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
@@ -183,8 +187,8 @@
           }
         },
         {
-          "name": "% of hospitals with YELLOW Occupancy Health",
-          "primary_metric name": "Hospitals with occupancy ventilator health",
+          "name": "% of Submitting Hospitals with Medium Reported Occupancy",
+          "primary_metric name": "% of Hospitals with medium occupancy",
           "column": "(sum(case(occupancy_health == 2, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
@@ -199,8 +203,8 @@
           }
         },
         {
-          "name": "% of hospitals with RED Occupancy Health",
-          "primary_metric name": "Hospitals with red occupancy health",
+          "name": "% of Submitting Hospitals with High Reported Occupancy",
+          "primary_metric name": "Hospitals with high reported occupancy",
           "column": "(sum(case(occupancy_health == 3, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
@@ -208,111 +212,6 @@
           "suffix": "%",
           "tags": [
             "Beds & Occupancy"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Hospitals with GREEN Ventilator Health",
-          "primary_metric name": "Hospitals with red ventilator health",
-          "parent_queries": [
-            "select :*,* where ventilators_use_health = '1'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Hospitals with YELLOW Ventilator Health",
-          "primary_metric name": "Hospitals with red ventilator health",
-          "parent_queries": [
-            "select :*,* where ventilators_use_health = '2'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Hospitals with RED Ventilator Health",
-          "primary_metric name": "Hospitals with red ventilator health",
-          "parent_queries": [
-            "select :*,* where ventilators_use_health = '3'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of hospitals with GREEN Ventilator Health",
-          "primary_metric name": "Hospitals with green ventilator health",
-          "column": "(sum(case(ventilators_use_health == 1, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of hospitals with YELLOW Ventilator Health",
-          "primary_metric name": "Hospitals with yellow ventilator health",
-          "column": "(sum(case(ventilators_use_health == 2, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Ventilator Access"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of hospitals with RED Ventilator Health",
-          "primary_metric name": "Hospitals with red ventilator health",
-          "column": "(sum(case(ventilators_use_health == 3, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Ventilator Access"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -370,15 +269,13 @@
         {
           "name": "Hospitals that have reported cases in the last 72 hours",
           "primary_metric name": "Cases reported - last 72 hours",
-          "parent_queries": [
-          ],
+          "parent_queries": [],
           "column": "case(case_reported_72_hours = 'true', 1, true, 0)",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
-          "tags": [
-          ],
+          "tags": [],
           "visualization": {
             "default_view": "snapshot",
             "snapshot": {}
@@ -387,15 +284,13 @@
         {
           "name": "% of hospitals that have reported cases in the last 72 hours",
           "primary_metric name": "Cases reported - last 72 hours",
-          "parent_queries": [
-          ],
+          "parent_queries": [],
           "column": "(sum(case(case_reported_72_hours = 'true', 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
           "suffix": "%",
-          "tags": [
-          ],
+          "tags": [],
           "visualization": {
             "default_view": "snapshot",
             "snapshot": {}
@@ -404,15 +299,13 @@
         {
           "name": "Hospitals that have not reported cases in the last 72 hours",
           "primary_metric name": "Cases not reported - last 72 hours",
-          "parent_queries": [
-          ],
+          "parent_queries": [],
           "column": "case(case_reported_72_hours = 'false', 1, true, 0)",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
-          "tags": [
-          ],
+          "tags": [],
           "visualization": {
             "default_view": "snapshot",
             "snapshot": {}
@@ -421,15 +314,13 @@
         {
           "name": "% of hospitals that have not reported cases in the last 72 hours",
           "primary_metric name": "Cases not reported - last 72 hours",
-          "parent_queries": [
-          ],
+          "parent_queries": [],
           "column": "(sum(case(case_reported_72_hours = 'false', 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
           "suffix": "%",
-          "tags": [
-          ],
+          "tags": [],
           "visualization": {
             "default_view": "snapshot",
             "snapshot": {}
@@ -445,7 +336,6 @@
           "name": "Entity Type Code",
           "column": "entity_type_code"
         }
-
       ],
       "leaf_page_entries": [
         {
