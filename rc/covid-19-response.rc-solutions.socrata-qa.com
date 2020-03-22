@@ -456,6 +456,9 @@
           ],
           "visualization": {
             "default_view": "overtime",
+            "map": {
+              "default_view": "choropleth"
+            },
             "overtime": {
               "show_area_chart": "true",
               "show_burn_up_chart": "true",
@@ -479,6 +482,9 @@
           ],
           "visualization": {
             "default_view": "map",
+            "map": {
+              "default_view": "choropleth"
+            },
             "overtime": {
               "show_area_chart": "true"
             }
