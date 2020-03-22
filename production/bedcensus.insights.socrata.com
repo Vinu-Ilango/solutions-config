@@ -620,7 +620,7 @@
         {
           "name": "COVID Deaths",
           "primary_metric name": "US COVID Tests",
-          "column": "deaths",
+          "column": "death",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
