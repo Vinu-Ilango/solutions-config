@@ -95,6 +95,20 @@
           }
         },
         {
+          "name": "Hospitals Reporting",
+          "primary_metric name": "Hospitals",
+          "column": "npi",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [],
+          "visualization": {
+            "default_view": "overtime",
+            "snapshot": {}
+          }
+        },
+        {
           "name": "Hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
@@ -425,6 +439,10 @@
         {
           "name": "Assignee",
           "column": "notes_assignee"
+        },
+        {
+          "name": "Entity Type Code",
+          "column": "entity_type_code"
         }
 
       ],
@@ -440,6 +458,10 @@
         {
           "column": "provider_business_mailing_1",
           "name": "State"
+        },
+        {
+          "column": "Last Submission",
+          "name": "last_updated_ts"
         }
       ],
       "quick_filter_entries": [
@@ -447,7 +469,17 @@
           "name": "Noted Assignee",
           "column": "notes_assignee",
           "renderType": "text"
-        }   
+        },
+        {
+          "name": "Total Bed Capacity",
+          "column": "total_bed_capacity",
+          "renderType": "number"
+        },
+        {
+          "name": "Total CC Bed Capacity",
+          "column": "total_bed_capacity_cc",
+          "renderType": "number"
+        }
       ],
       "map": {
         "centerLat": "34.263423913021555",
