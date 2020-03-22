@@ -462,7 +462,7 @@
                     "name": "US Confirmed COVID Cases",
                     "primary_metric name": "US COVID Cases",
                     "parent_queries": [
-                        "select sum(count) AS sum_cases, `date`, country_region where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, `date`"
+                        "select sum(count) AS sum_cases, type, `date`, country_region where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, type, `date`"
                     ],
                     "column": "sum_cases",
                     "aggregate_type": "max",
@@ -494,10 +494,6 @@
                 {
                     "column": "country_region",
                     "name": "Country or Region"
-                },
-                {
-                    "column": "province_state",
-                    "name": "Province or State"
                 },
                 {
                     "column": "type",
