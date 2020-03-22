@@ -432,7 +432,7 @@
             }
           },
           "parent_queries": [
-            "select * where entity = 'City' and accounttype = 'Expense'"
+            "select * where segment2 IS NOT 'Schools'"
           ],
           "target_entries": [
             {
