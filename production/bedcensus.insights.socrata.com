@@ -564,6 +564,165 @@
       ]
     },
     {
+      "name": "COVID-19 Spread",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "263t-cwk5",
+      "parent_queries": [],
+      "fields": {
+        "date_column": "date",
+        "incident_type": "type",
+        "location": "geocoded_column",
+        "mquc-phjc": "@computed_region_mquc_phjc"
+      },
+      "dimension_entries": [
+        {
+          "column": "country_region",
+          "name": "Country"
+        },
+        {
+          "column": "Province or State",
+          "name": "province_state"
+        },
+        {
+          "column": "type",
+          "name": "type"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "COVID Total Tests",
+          "primary_metric name": "US COVID Tests",
+          "column": "total",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        },
+        {
+          "name": "COVID Confirmed Cases",
+          "primary_metric name": "US COVID Tests",
+          "column": "positive",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "overtime": {
+              "show_area_chart": "true"
+            }
+          }
+        },
+        {
+          "name": "COVID Deaths",
+          "primary_metric name": "US COVID Tests",
+          "column": "deaths",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "overtime": {
+              "show_area_chart": "true"
+            }
+          }
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "state",
+          "name": "State"
+        },
+        {
+          "column": "total",
+          "name": "Total Tests"
+        },
+        {
+          "column": "positive",
+          "name": "Positive Tests"
+        },
+        {
+          "column": "negative",
+          "name": "Negative Tests"
+        },
+        {
+          "column": "pending",
+          "name": "Pending Tests"
+        },
+        {
+          "column": "deaths",
+          "name": "Deaths"
+        },
+        {
+          "column": "date",
+          "name": "Date"
+        }
+      ],
+      "map": {
+        "centerLat": "34.263423913021555",
+        "centerLng": "-90.42980668901862",
+        "zoom": "3.2",
+        "mini_map_zoom": "2.5",
+        "shapes_outline_highlight_width": "2",
+        "shapes_outline_width": "1.5",
+        "style_entries": [
+          {
+            "name": "Street",
+            "style": "mapbox://styles/mapbox/streets-v10"
+          },
+          {
+            "name": "Light",
+            "style": "mapbox://styles/mapbox/light-v9"
+          },
+          {
+            "name": "Dark",
+            "style": "mapbox://styles/mapbox/dark-v9"
+          },
+          {
+            "name": "Satelite",
+            "style": "mapbox://styles/mapbox/satellite-v9"
+          },
+          {
+            "name": "Outdoors",
+            "style": "mapbox://styles/mapbox/outdoors-v10"
+          }
+        ]
+      },
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        }
+      ]
+    },
+    {
       "name": "Notes & Assignments",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
