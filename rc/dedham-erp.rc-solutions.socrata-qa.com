@@ -1901,7 +1901,7 @@
     {
       "name": "Payroll & Compensation",
       "dataset_domain": "dedhamma.data.socrata.com",
-      "dataset_id": "4fix-tsif",
+      "dataset_id": "hpya-7zxu",
       "fields": {
         "date_column": "checkdate"
       },
