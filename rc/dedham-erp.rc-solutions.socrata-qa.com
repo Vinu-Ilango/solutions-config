@@ -21,7 +21,7 @@
   "template_entries": [
     {
       "name": "Core Financials",
-      "dataset_domain": "https://dedhamma.data.socrata.com/",
+      "dataset_domain": "dedhamma.data.socrata.com",
       "dataset_id": "2raa-pskg",
       "fields": {
         "date_column": "fiscalmonth"
