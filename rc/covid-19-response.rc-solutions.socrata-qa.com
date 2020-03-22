@@ -445,7 +445,7 @@
           "parent_queries": [
             "select * where type = 'Confirmed'"
           ],
-          "column": "count - ycount",
+          "column": "count - y_count",
           "start_date_override_and_ignore": "true",
           "aggregate_type": "max",
           "precision": "0",
@@ -469,7 +469,7 @@
           "parent_queries": [
             "select * where country_region = 'US' and type = 'Confirmed'"
           ],
-          "column": "count - ycount",
+          "column": "count - y_count",
           "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
