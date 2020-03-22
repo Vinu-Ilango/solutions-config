@@ -1,5 +1,6 @@
 {
   "application_use": "production",
+  "is_private": "true",
   "branding": {
     "browser_title": "COVID-19 Response",
     "title": "COVID-19 Response",
