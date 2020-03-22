@@ -1,5 +1,5 @@
 {
-  "application_use": "production",
+  "application_use": "live",
   "is_private": "true",
   "solutions_app_users": ["*@elumitas.com", "*@tylertech.com", "*@socrata.com"],
   "branding": {
@@ -33,16 +33,16 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "elumitas.test-socrata.com",
-      "dataset_id": "99hv-bkmr",
-      "notes_dataset_id": "q9jh-eg7s",
-      "notes_dataset_join_column": "hospital_id",
-      "parent_dataset_join_column": "npi",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "6ide-cs9c",
       "parent_queries": [],
       "fields": {
-        "date_column": "last_updated_ts",
+        "date_column": "last_update_date",
         "incident_type": "classification",
-        "location": "geocoded_column"
+        "location": "geocoded_column",
+        "mquc-phjc": ":@computed_region_mquc_phjc",
+        "ctwz-r3ic": ":@computed_region_ctwz_r3ic",
+        "mpe2-7au2": ":@computed_region_mpe2_7au2"
       },
       "dimension_entries": [
         {
@@ -93,7 +93,7 @@
           }
         },
         {
-          "name": "Hospitals with GREEN Occupancy Health",
+          "name": "# of hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
             "select * where occupancy_health = '1'"
@@ -104,7 +104,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Occupancy Health"
+            "Beds & Occupancy"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -112,7 +112,7 @@
           }
         },
         {
-          "name": "Hospitals with YELLOW Occupancy Health",
+          "name": "# of hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
             "select * where occupancy_health = '2'"
@@ -131,7 +131,7 @@
           }
         },
         {
-          "name": "Hospitals with RED Occupancy Health",
+          "name": "# of hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
             "select * where occupancy_health = '3'"
@@ -198,7 +198,7 @@
           }
         },
         {
-          "name": "Hospitals with GREEN Ventilator Health",
+          "name": "# of hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '1'"
@@ -217,7 +217,7 @@
           }
         },
         {
-          "name": "Hospitals with YELLOW Ventilator Health",
+          "name": "# of hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '2'"
@@ -236,7 +236,7 @@
           }
         },
         {
-          "name": "Hospitals with RED Ventilator Health",
+          "name": "# of hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '3'"
@@ -349,10 +349,77 @@
             "default_view": "snapshot",
             "snapshot": {}
           }
+        },
+        {
+          "name": "# of hospitals that have reported cases in the last 72 hours",
+          "primary_metric name": "Cases reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
+          "aggregate_type": "",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "% of hospitals that have reported cases in the last 72 hours",
+          "primary_metric name": "Cases reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "(sum(case(case_reported_72_hours = true, 1, true, 0))/count(npi))*100",
+          "aggregate_type": "",
+          "precision": "2",
+          "prefix": "",
+          "suffix": "%",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "# of hospitals that have not reported cases in the last 72 hours",
+          "primary_metric name": "Cases not reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "sum(case(case_reported_72_hours = false, 1, true, 0))",
+          "aggregate_type": "",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "% of hospitals that have not reported cases in the last 72 hours",
+          "primary_metric name": "Cases not reported - last 72 hours",
+          "parent_queries": [
+          ],
+          "column": "(sum(case(case_reported_72_hours = false, 1, true, 0))/count(npi))*100",
+          "aggregate_type": "",
+          "precision": "2",
+          "prefix": "",
+          "suffix": "%",
+          "tags": [
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
         }
       ],
       "filter_by_entries": [
-      
       ],
       "leaf_page_entries": [
         {
@@ -366,34 +433,14 @@
         {
           "column": "provider_business_mailing_1",
           "name": "State"
-        },
-        {
-          "name": "Assignee",
-          "column": "notes_assignee"
-        },
-        {
-          "name": "Notes",
-          "column": "notes_message"
         }
       ],
-      "quick_filter_entries": [
-        {
-          "name": "Noted Assignee",
-          "column": "notes_assignee",
-          "renderType": "text"
-        }
-      ],
-      "filter_by_entries": [
-        {
-          "name": "Assignee",
-          "column": "notes_assignee"
-        }
-      ],
+      "quick_filter_entries": [],
       "map": {
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
         "zoom": "3.2",
-        "mini_map_zoom": "3.5",
+        "mini_map_zoom": "2.5",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
@@ -419,7 +466,44 @@
           }
         ]
       },
-      "shape_dataset_entries": []
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        },
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "ctwz-r3ic",
+          "shape_name": "Counties",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        },
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mpe2-7au2",
+          "shape_name": "New Jersey Census",
+          "fields": {
+            "shape": "multipolygon",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        }
+      ]
     }
   ]
 }
