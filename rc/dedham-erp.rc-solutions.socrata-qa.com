@@ -432,7 +432,7 @@
             }
           },
           "parent_queries": [
-            "select * where segment2 != 'Schools'"
+            "select * where segment2 != 'Schools' and accounttype = 'Expense'"
           ],
           "target_entries": [
             {
