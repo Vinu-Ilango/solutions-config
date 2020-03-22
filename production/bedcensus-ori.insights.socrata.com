@@ -417,13 +417,12 @@
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "388n-8tsy",
-      "parent_queries": [],
+      "dataset_id": "bj8b-wfx5",
       "fields": {
         "date_column": "date",
         "incident_type": "type",
         "location": "geocoded_column",
-        "mquc-phjc": "@computed_region_mquc_phjc"
+        "mquc-phjc": ":@computed_region_mquc_phjc"
       },
       "dimension_entries": [
         {
@@ -446,7 +445,7 @@
           "parent_queries": [
             "select * where type = 'Confirmed'"
           ],
-          "column": "count",
+          "column": "count - ycount",
           "start_date_override_and_ignore": "true",
           "aggregate_type": "max",
           "precision": "0",
@@ -470,7 +469,7 @@
           "parent_queries": [
             "select * where country_region = 'US' and type = 'Confirmed'"
           ],
-          "column": "cases",
+          "column": "count - ycount",
           "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
