@@ -1,6 +1,7 @@
 {
   "application_use": "live",
   "solutions_app_users": ["*@elumitas.com", "*@tylertech.com", "*@socrata.com"],
+  "allow_leaf_page_from_table":"true",
   "branding": {
     "browser_title": "COVID-19 Response",
     "title": "COVID-19 Response",
