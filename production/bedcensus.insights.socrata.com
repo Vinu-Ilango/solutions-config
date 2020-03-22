@@ -1,6 +1,6 @@
 {
   "application_use": "live",
-  "is_private": "true",
+  "is_private": "false",
   "solutions_app_users": [
     "*@elumitas.com",
     "*@tylertech.com",
