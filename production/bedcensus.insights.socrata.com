@@ -564,7 +564,7 @@
       ]
     },
     {
-      "name": "COVID-19 Spread",
+      "name": "COVID-19 Testing",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
       "dataset_id": "263t-cwk5",
