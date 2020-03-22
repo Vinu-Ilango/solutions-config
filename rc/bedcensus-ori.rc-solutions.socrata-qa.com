@@ -464,8 +464,7 @@
                     "parent_queries": [
                         "select sum(count) AS sum_cases, type, `date`, province_state, country_region, geocoded_column where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, province_state, type, `date`, geocoded_column"
                     ],
-                    "column": "select sum(sum_cases) GROUP BY country_region, date",
-                    "aggregate_type": "max",
+                    "column": "select sum(sum_cases) as sum_sum_cases GROUP BY country_region, date ORDER BY sum_sum_cases DESC LIMIT 1",
                     "precision": "0",
                     "prefix": "",
                     "suffix": "cases",
