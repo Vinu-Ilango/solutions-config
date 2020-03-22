@@ -1,6 +1,6 @@
 {
   "application_use": "live",
-  "is_private": "true",
+  "is_private": "false",
   "solutions_app_users": [
     "*@elumitas.com",
     "*@tylertech.com",
@@ -88,7 +88,7 @@
           }
         },
         {
-          "name": "Hospitals Reporting",
+          "name": "Hospitals Reporting At Least Once in Period",
           "primary_metric name": "Hospitals",
           "column": "npi",
           "aggregate_type": "count",
@@ -104,7 +104,7 @@
           }
         },
         {
-          "name": "Hospitals Reporting",
+          "name": "Hospitals Reporting At Least Once in Period",
           "primary_metric name": "Hospitals",
           "column": "npi",
           "aggregate_type": "count",
@@ -225,10 +225,11 @@
           }
         },
         {
-          "name": "% of Hospitals Submitting Within 24 Hours",
+          "name": "% of Hospitals Submitting - Last 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
+          "end_date_override_and_ignore": "true",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -242,10 +243,11 @@
           }
         },
         {
-          "name": "% of Hospitals Submitting Within 48 Hours",
-          "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
+          "name": "% of Hospitals Submitting - Last 48 Hours",
+          "primary_metric name": "Data Submission - Last 48 Hours",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
+          "end_date_override_and_ignore": "true",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -259,9 +261,9 @@
           }
         },
         {
-          "name": "% of Hospitals Submitting Within 72 Hours",
+          "name": "% of Hospitals Submitting - Last 72 Hours",
           "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -562,31 +564,26 @@
       ]
     },
     {
-      "name": "Notes & Assignments",
+      "name": "COVID-19 Testing",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "8tv7-b3ra",
+      "dataset_id": "263t-cwk5",
       "parent_queries": [],
       "fields": {
-        "date_column": "last_called"
+        "date_column": "date"
       },
       "dimension_entries": [
         {
-          "column": "assignee",
-          "name": "Assignee"
-        },
-        {
-          "column": "hospital_id",
-          "name": "Hospital ID"
+          "column": "state",
+          "name": "State"
         }
       ],
       "view_entries": [
         {
-          "name": "Hospital Calls",
-          "primary_metric name": "Calls",
-          "column": "hospital_id",
-          "start_date_override_and_ignore": "true",
-          "aggregate_type": "count",
+          "name": "COVID Total Tests",
+          "primary_metric name": "US COVID Tests",
+          "column": "total",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
@@ -594,7 +591,7 @@
             "COVID-19 Spread"
           ],
           "visualization": {
-            "default_view": "overtime",
+            "default_view": "snapshot",
             "overtime": {
               "show_area_chart": "true",
               "show_burn_up_chart": "true",
@@ -603,13 +600,10 @@
           }
         },
         {
-          "name": "US Confirmed COVID Cases",
-          "primary_metric name": "US COVID Cases",
-          "parent_queries": [
-            "select * where country_region = 'US' and type = 'Confirmed'"
-          ],
-          "column": "cases",
-          "aggregate_type": "max",
+          "name": "COVID Confirmed Cases",
+          "primary_metric name": "US COVID Tests",
+          "column": "positive",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
@@ -617,43 +611,59 @@
             "COVID-19 Spread"
           ],
           "visualization": {
-            "default_view": "map",
+            "default_view": "snapshot",
+            "overtime": {
+              "show_area_chart": "true"
+            }
+          }
+        },
+        {
+          "name": "COVID Deaths",
+          "primary_metric name": "US COVID Tests",
+          "column": "death",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
             "overtime": {
               "show_area_chart": "true"
             }
           }
         }
       ],
-      "filter_by_entries": [
-        {
-          "name": "Country",
-          "column": "country_region"
-        },
-        {
-          "name": "Type",
-          "column": "type"
-        }
-      ],
       "leaf_page_entries": [
         {
-          "column": "country_region",
-          "name": "Country or Region"
+          "column": "state",
+          "name": "State"
         },
         {
-          "column": "province_state",
-          "name": "Province or State"
+          "column": "total",
+          "name": "Total Tests"
         },
         {
-          "column": "type",
-          "name": "Type"
+          "column": "positive",
+          "name": "Positive Tests"
+        },
+        {
+          "column": "negative",
+          "name": "Negative Tests"
+        },
+        {
+          "column": "pending",
+          "name": "Pending Tests"
+        },
+        {
+          "column": "deaths",
+          "name": "Deaths"
         },
         {
           "column": "date",
           "name": "Date"
-        },
-        {
-          "column": "count",
-          "name": "Count"
         }
       ],
       "map": {
@@ -698,6 +708,67 @@
             "shape_description": "name"
           },
           "color": "#add8e6"
+        }
+      ]
+    },
+    {
+      "name": "Notes & Assignments",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "8tv7-b3ra",
+      "fields": {
+        "date_column": "last_called"
+      },
+      "dimension_entries": [
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "Hospitals Called",
+          "primary_metric name": "Hospitals Called",
+          "column": "hospital_id",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+            "Submission Tracking"
+          ],
+          "visualization": {
+            "default_view": "table"
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Assignee",
+          "column": "assignee"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        },
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "message",
+          "name": "Notes"
+        },
+        {
+          "column": "last_called",
+          "name": "Last Called"
         }
       ]
     }
