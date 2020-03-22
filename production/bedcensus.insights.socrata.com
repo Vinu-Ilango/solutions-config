@@ -227,7 +227,7 @@
         {
           "name": "% of Hospitals Submitting Within 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))*1000",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -245,7 +245,7 @@
         {
           "name": "% of Hospitals Submitting Within 48 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))*1000",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -263,7 +263,7 @@
         {
           "name": "% of Hospitals Submitting Within 72 Hours",
           "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
-          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*1000",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
