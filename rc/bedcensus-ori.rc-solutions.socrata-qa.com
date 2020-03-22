@@ -462,9 +462,9 @@
                     "name": "US Confirmed COVID Cases",
                     "primary_metric name": "US COVID Cases",
                     "parent_queries": [
-                        "select sum(count) AS sum_cases, type, `date`, country_region where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, type, `date`"
+                        "select sum(count) AS sum_cases, type, `date`, province_state, country_region, geocoded_column where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, province_state, type, `date`, geocoded_column"
                     ],
-                    "column": "sum_cases",
+                    "column": "select sum(sum_cases) GROUP BY country_region, date",
                     "aggregate_type": "max",
                     "precision": "0",
                     "prefix": "",
