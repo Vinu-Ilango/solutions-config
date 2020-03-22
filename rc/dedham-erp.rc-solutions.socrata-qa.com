@@ -1063,7 +1063,7 @@
             }
           },
           "parent_queries": [
-            "select * where employee = 'false' and vendorname != 'NULL'"
+            "select * where employee = 'N' and vendorname != 'NULL'"
           ],
           "target_entries": [
             {
@@ -2329,103 +2329,6 @@
           "column": "paycategory",
           "name": "Pay Type",
           "renderType": "text"
-        }
-      ]
-    },
-    {
-      "name": "Employee Actions",
-      "dataset_domain": "dedhamma.data.socrata.com",
-      "dataset_id": "fi9w-825h",
-      "fields": {
-        "date_column": "effectivedate"
-      },
-      "dimension_entries": [
-        {
-          "column": "department",
-          "name": "Department"
-        },
-        {
-          "column": "jobclass",
-          "name": "Job Class"
-        },
-        {
-          "column": "position",
-          "name": "Position"
-        },
-        {
-          "column": "action",
-          "name": "Action"
-        },
-        {
-          "column": "reason",
-          "name": "Reason"
-        }
-      ],
-      "view_entries": [
-        {
-          "name": "Internal Transfers",
-          "column": "case(isdepartmentchanged = 'True', 1, true, 0)",
-          "aggregate_type": "sum",
-          "prefix": "",
-          "suffix": "",
-          "precision": "",
-          "tags": [
-            "Payroll & HR"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {
-              "chart_type": "barChart"
-            }
-          },
-          "comparison_column_entries": []
-        },
-        {
-          "name": "Retirements & Resignations",
-          "column": "actionhistoryid",
-          "aggregate_type": "count",
-          "prefix": "",
-          "suffix": "",
-          "precision": "",
-          "tags": [
-            "Payroll & HR"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {
-              "chart_type": "barChart"
-            }
-          },
-          "comparison_column_entries": [],
-          "parent_queries": [
-            "select * where action like '%RESIGN%'"
-          ]
-        }
-      ],
-      "leaf_page_entries": [
-        {
-          "column": "department",
-          "name": "Department"
-        },
-        {
-          "column": "jobclass",
-          "name": "Job Class"
-        },
-        {
-          "column": "position",
-          "name": "Position"
-        },
-        {
-          "column": "action",
-          "name": "Action"
-        },
-        {
-          "column": "reason",
-          "name": "Reason"
-        },
-        {
-          "column": "employeename",
-          "name": "Employee"
         }
       ]
     }
