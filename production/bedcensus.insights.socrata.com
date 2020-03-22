@@ -1,5 +1,5 @@
 {
-  "application_use": "demo",
+  "application_use": "production",
   "branding": {
     "browser_title": "COVID-19 Response",
     "title": "COVID-19 Response",
