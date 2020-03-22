@@ -29,9 +29,9 @@
   },
   "street_view_map_key": "AIzaSyB17sR2sKWfEcfsXwq_EKH4_J4DKuZ3y6I",
   "tag_list": [
-    "Beds & Occupancy",
-    "Ventilator Access",
-    "Data Quality"
+    "Hospital Health",
+    "Submission Tracking",
+    "COVID-19 Spread"
   ],
   "template_entries": [
     {
@@ -79,7 +79,9 @@
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
-          "tags": [],
+          "tags": [
+            "Submission Tracking"
+          ],
           "visualization": {
             "default_view": "map",
             "snapshot": {}
@@ -93,7 +95,9 @@
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
-          "tags": [],
+          "tags": [
+            "Submission Tracking"
+          ],
           "visualization": {
             "default_view": "map",
             "snapshot": {}
@@ -107,7 +111,9 @@
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
-          "tags": [],
+          "tags": [
+            "Submission Tracking"
+          ],
           "visualization": {
             "default_view": "overtime",
             "snapshot": {}
@@ -125,7 +131,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -144,7 +150,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -163,7 +169,7 @@
           "prefix": "",
           "suffix": "hospitals",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -179,7 +185,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -195,7 +201,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -211,7 +217,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Beds & Occupancy"
+            "Hospital Health"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -227,7 +233,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Data Quality"
+            "Submission Tracking"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -243,7 +249,7 @@
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Data Quality"
+            "Submission Tracking"
           ],
           "visualization": {
             "default_view": "snapshot",
@@ -252,75 +258,15 @@
         },
         {
           "name": "% of Hospitals Submitting Within 72 Hours",
-          "primary_metric name": "Data Submission - Last 24 Hours",
+          "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
           "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
           "suffix": "%",
           "tags": [
-            "Data Quality"
+            "Submission Tracking"
           ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Hospitals that have reported cases in the last 72 hours",
-          "primary_metric name": "Cases reported - last 72 hours",
-          "parent_queries": [],
-          "column": "case(case_reported_72_hours = 'true', 1, true, 0)",
-          "aggregate_type": "sum",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of hospitals that have reported cases in the last 72 hours",
-          "primary_metric name": "Cases reported - last 72 hours",
-          "parent_queries": [],
-          "column": "(sum(case(case_reported_72_hours = 'true', 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Hospitals that have not reported cases in the last 72 hours",
-          "primary_metric name": "Cases not reported - last 72 hours",
-          "parent_queries": [],
-          "column": "case(case_reported_72_hours = 'false', 1, true, 0)",
-          "aggregate_type": "sum",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of hospitals that have not reported cases in the last 72 hours",
-          "primary_metric name": "Cases not reported - last 72 hours",
-          "parent_queries": [],
-          "column": "(sum(case(case_reported_72_hours = 'false', 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [],
           "visualization": {
             "default_view": "snapshot",
             "snapshot": {}
@@ -453,6 +399,154 @@
           "shape_name": "New Jersey Census",
           "fields": {
             "shape": "multipolygon",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        }
+      ]
+    },
+    {
+      "name": "COVID-19 Spread",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "388n-8tsy",
+      "parent_queries": [],
+      "fields": {
+        "date_column": "date",
+        "incident_type": "type",
+        "location": "geocoded_column"
+      },
+      "dimension_entries": [
+        {
+          "column": "classification",
+          "name": "Classification"
+        },
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation"
+        },
+        {
+          "column": "provider_business_mailing_1",
+          "name": "State"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "Global COVID Cases",
+          "primary_metric name": "Global COVID Cases",
+          "column": "count",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "overtime",
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        },
+        {
+          "name": "US COVID Cases",
+          "primary_metric name": "US COVID Cases",
+          "parent_queries": [
+            "select * where country_region = 'US'"
+          ],
+          "column": "count",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "map",
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Country",
+          "column": "country_region"
+        },
+        {
+          "name": "Type",
+          "column": "type"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "country_region",
+          "name": "Country or Region"
+        },
+        {
+          "column": "province_state",
+          "name": "Province or State"
+        },
+        {
+          "column": "type",
+          "name": "Type"
+        },
+        {
+          "column": "date",
+          "name": "Date"
+        },
+        {
+          "column": "count",
+          "name": "Count"
+        }
+      ],
+      "map": {
+        "centerLat": "34.263423913021555",
+        "centerLng": "-90.42980668901862",
+        "zoom": "3.2",
+        "mini_map_zoom": "2.5",
+        "shapes_outline_highlight_width": "2",
+        "shapes_outline_width": "1.5",
+        "style_entries": [
+          {
+            "name": "Street",
+            "style": "mapbox://styles/mapbox/streets-v10"
+          },
+          {
+            "name": "Light",
+            "style": "mapbox://styles/mapbox/light-v9"
+          },
+          {
+            "name": "Dark",
+            "style": "mapbox://styles/mapbox/dark-v9"
+          },
+          {
+            "name": "Satelite",
+            "style": "mapbox://styles/mapbox/satellite-v9"
+          },
+          {
+            "name": "Outdoors",
+            "style": "mapbox://styles/mapbox/outdoors-v10"
+          }
+        ]
+      },
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
             "shape_id": "_feature_id",
             "shape_name": "name",
             "shape_description": "name"
