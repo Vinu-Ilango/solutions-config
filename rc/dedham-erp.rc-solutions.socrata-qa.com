@@ -1303,10 +1303,10 @@
           }
         },
         {
-          "name": "Tax Revenue vs. Budget",
+          "name": "Property Tax Revenue vs. Budget",
           "column": "actual",
           "parent_queries": [
-            "select * where charactercodedescription = 'Prop & Excise Taxes'"
+            "select * where charactercodedescription = 'Property Taxes'"
           ],
           "aggregate_type": "sum",
           "prefix": "$",
@@ -1436,7 +1436,7 @@
           "name": "School Revenues vs. Budget",
           "column": "actual",
           "parent_queries": [
-            "select * where entity = 'School'"
+            "select * where segment2 = 'Schools'"
           ],
           "aggregate_type": "sum",
           "prefix": "$",
@@ -1582,7 +1582,7 @@
           "name": "City Revenues vs. Budget",
           "column": "actual",
           "parent_queries": [
-            "select * where entity = 'City'"
+            "select * where segment2 != 'Schools'"
           ],
           "aggregate_type": "sum",
           "prefix": "$",
@@ -1723,137 +1723,6 @@
               "icon": "icons-times-circle"
             }
           ]
-        },
-        {
-          "name": "Jetport Revenues vs. Budget",
-          "column": "actual",
-          "parent_queries": [
-            "select * where organization = 'Jetport'"
-          ],
-          "aggregate_type": "sum",
-          "prefix": "$",
-          "suffix": "",
-          "precision": "2",
-          "tags": [
-            "Revenue & Tax",
-            "Jetport"
-          ],
-          "visualization": {
-            "default_view": "overtime",
-            "snapshot": {
-              "chart_type": "barChart",
-              "show_pie_chart": "false",
-              "barchart": {
-                "secondary_metric_entries": [
-                  {
-                    "column": "revisedbudget",
-                    "name": "Revised Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2",
-                    "render_type": "bullet"
-                  },
-                  {
-                    "column": "actual",
-                    "name": "Actual Revenue",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2",
-                    "render_type": "bullet"
-                  },
-                  {
-                    "column": "originalbudget",
-                    "name": "Original Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2",
-                    "render_type": "bullet"
-                  }
-                ],
-                "default_secondary_metric": "Revised Budget"
-              }
-            },
-            "overtime": {
-              "default_view": "burn_up",
-              "show_area_chart": "true",
-              "show_burn_up_chart": "true",
-              "show_timeline_total": "true",
-              "timeline": {
-                "secondary_metric_entries": [
-                  {
-                    "column": "revisedbudget",
-                    "name": "Revised Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  },
-                  {
-                    "column": "actual",
-                    "name": "Actual Revenue",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  },
-                  {
-                    "column": "originalbudget",
-                    "name": "Original Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  }
-                ]
-              },
-              "burn_up": {
-                "default_bench_mark": "Revised Budget",
-                "default_time_frame": "year_on_year",
-                "default_compare_year": "2019",
-                "secondary_metric_entries": [
-                  {
-                    "column": "revisedbudget",
-                    "name": "Revised Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  },
-                  {
-                    "column": "actual",
-                    "name": "Actual Revenue",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  },
-                  {
-                    "column": "originalbudget",
-                    "name": "Original Budget",
-                    "aggregate_type": "sum",
-                    "prefix": "$",
-                    "suffix": "",
-                    "precision": "2"
-                  }
-                ],
-                "bench_mark_entries": [
-                  {
-                    "column": "revisedbudget",
-                    "name": "Revised Budget",
-                    "aggregate_type": "sum"
-                  },
-                  {
-                    "column": "originalbudget",
-                    "name": "Original Budget",
-                    "aggregate_type": "sum"
-                  }
-                ]
-              }
-            }
-          }
         }
       ],
       "leaf_page_entries": [
