@@ -420,22 +420,25 @@
       },
       "dimension_entries": [
         {
-          "column": "classification",
-          "name": "Classification"
+          "column": "country_region",
+          "name": "Country"
         },
         {
-          "column": "provider_organization_name",
-          "name": "Organisation"
+          "column": "Province or State",
+          "name": "province_state"
         },
         {
-          "column": "provider_business_mailing_1",
-          "name": "State"
+          "column": "type",
+          "name": "type"
         }
       ],
       "view_entries": [
         {
-          "name": "Global COVID Cases",
+          "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
+          "parent_queries": [
+            "select * where type = 'Confirmed'"
+          ],
           "column": "count",
           "start_date_override_and_ignore": "true",
           "aggregate_type": "max",
@@ -455,10 +458,10 @@
           }
         },
         {
-          "name": "US COVID Cases",
+          "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * where country_region = 'US'"
+            "select * where country_region = 'US' and type = 'Confirmed'"
           ],
           "column": "count",
           "aggregate_type": "max",
