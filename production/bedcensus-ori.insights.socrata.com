@@ -228,6 +228,7 @@
           "name": "% of Hospitals Submitting Within 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
           "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
+          "start_date_override_and_ignore": "true",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -244,6 +245,7 @@
           "name": "% of Hospitals Submitting Within 48 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
           "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
+          "start_date_override_and_ignore": "true",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -260,6 +262,8 @@
           "name": "% of Hospitals Submitting Within 72 Hours",
           "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
           "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
+          "start_date_override_and_ignore": "true",
+          "end_date_override_and_ignore": "true",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -462,9 +466,149 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select sum(count) AS sum_cases where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, province_state, date_trunc_ymd(`date`), sum_cases"
+            "select * where country_region = 'US' and type = 'Confirmed'"
           ],
-          "column": "sum_cases",
+          "column": "cases",
+          "aggregate_type": "max",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "map",
+            "overtime": {
+              "show_area_chart": "true"
+            }
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Country",
+          "column": "country_region"
+        },
+        {
+          "name": "Type",
+          "column": "type"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "country_region",
+          "name": "Country or Region"
+        },
+        {
+          "column": "province_state",
+          "name": "Province or State"
+        },
+        {
+          "column": "type",
+          "name": "Type"
+        },
+        {
+          "column": "date",
+          "name": "Date"
+        },
+        {
+          "column": "count",
+          "name": "Count"
+        }
+      ],
+      "map": {
+        "centerLat": "34.263423913021555",
+        "centerLng": "-90.42980668901862",
+        "zoom": "3.2",
+        "mini_map_zoom": "2.5",
+        "shapes_outline_highlight_width": "2",
+        "shapes_outline_width": "1.5",
+        "style_entries": [
+          {
+            "name": "Street",
+            "style": "mapbox://styles/mapbox/streets-v10"
+          },
+          {
+            "name": "Light",
+            "style": "mapbox://styles/mapbox/light-v9"
+          },
+          {
+            "name": "Dark",
+            "style": "mapbox://styles/mapbox/dark-v9"
+          },
+          {
+            "name": "Satelite",
+            "style": "mapbox://styles/mapbox/satellite-v9"
+          },
+          {
+            "name": "Outdoors",
+            "style": "mapbox://styles/mapbox/outdoors-v10"
+          }
+        ]
+      },
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        }
+      ]
+    },
+    {
+      "name": "Notes & Assignments",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "8tv7-b3ra",
+      "parent_queries": [],
+      "fields": {
+        "date_column": "last_called"
+      },
+      "dimension_entries": [
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "Hospital Calls",
+          "primary_metric name": "Calls",
+          "column": "hospital_id",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "overtime",
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        },
+        {
+          "name": "US Confirmed COVID Cases",
+          "primary_metric name": "US COVID Cases",
+          "parent_queries": [
+            "select * where country_region = 'US' and type = 'Confirmed'"
+          ],
+          "column": "cases",
           "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
