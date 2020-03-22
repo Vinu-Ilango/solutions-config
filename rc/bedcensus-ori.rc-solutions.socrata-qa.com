@@ -468,10 +468,11 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * where country_region = 'US' and type = 'Confirmed'"
+            "SELECT `count`, `type`, `date`, province_state, country_region, geocoded_column, max(`date`) over (partition by country_region, province_state) AS last_date WHERE country_region = 'US' and (type ='Confirmed' OR type='Death')",
+            "SELECT `count`, `type`, `date`, province_state, country_region, geocoded_column WHERE `date` >= last_date"
           ],
-          "column": "cases",
-          "aggregate_type": "max",
+          "column": "count",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
