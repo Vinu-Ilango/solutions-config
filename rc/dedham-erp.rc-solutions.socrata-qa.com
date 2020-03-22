@@ -432,7 +432,7 @@
             }
           },
           "parent_queries": [
-            "select * where segment2 NOT 'Schools'"
+            "select * where segment2 != 'Schools'"
           ],
           "target_entries": [
             {
