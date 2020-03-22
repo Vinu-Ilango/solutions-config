@@ -416,7 +416,8 @@
       "fields": {
         "date_column": "date",
         "incident_type": "type",
-        "location": "geocoded_column"
+        "location": "geocoded_column",
+        "mquc-phjc": "@computed_region_mquc_phjc"
       },
       "dimension_entries": [
         {
