@@ -430,8 +430,8 @@
           "name": "Country"
         },
         {
-          "column": "Province or State",
-          "name": "province_state"
+          "column": "province_state",
+          "name": "Province or State"
         },
         {
           "column": "type",
@@ -445,9 +445,9 @@
           "parent_queries": [
             "select * where type = 'Confirmed'"
           ],
-          "column": "count - y_count",
+          "column": "delta",
           "start_date_override_and_ignore": "true",
-          "aggregate_type": "max",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
@@ -469,8 +469,8 @@
           "parent_queries": [
             "select * where country_region = 'US' and type = 'Confirmed'"
           ],
-          "column": "count - y_count",
-          "aggregate_type": "max",
+          "column": "delta",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
