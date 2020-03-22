@@ -438,7 +438,7 @@
           "primary_metric name": "Global COVID Cases",
           "column": "count",
           "start_date_override_and_ignore": "true",
-          "aggregate_type": "sum",
+          "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
@@ -461,7 +461,7 @@
             "select * where country_region = 'US'"
           ],
           "column": "count",
-          "aggregate_type": "sum",
+          "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
