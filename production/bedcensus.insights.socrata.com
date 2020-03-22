@@ -353,6 +353,26 @@
         {
           "column": "last_updated_ts",
           "name": "Last Submission"
+        },
+        {
+          "column": "last_updated_ts",
+          "name": "Last Submission"
+        },
+        {
+          "column": "last_updated_ts",
+          "name": "Last Submission"
+        },
+        {
+          "column": "user_id",
+          "name": "Updating User ID"
+        },
+        {
+          "column": "full_name",
+          "name": "Authorized User Name"
+        },
+        {
+          "column": "authorized_official_telephone",
+          "name": "Authorized Phone Number"
         }
       ],
       "quick_filter_entries": [
