@@ -439,9 +439,9 @@
           "parent_queries": [
             "select * where type = 'Confirmed'"
           ],
-          "column": "max(count)",
+          "column": "count",
           "start_date_override_and_ignore": "true",
-          "aggregate_type": "sum",
+          "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
@@ -474,9 +474,7 @@
           "visualization": {
             "default_view": "map",
             "overtime": {
-              "show_area_chart": "true",
-              "show_burn_up_chart": "true",
-              "default_view": "burn_up"
+              "show_area_chart": "true"
             }
           }
         }
