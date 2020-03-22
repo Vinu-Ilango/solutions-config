@@ -112,7 +112,7 @@
           "name": "Hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '1'"
+            "select :*,* where occupancy_health = '1'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -131,7 +131,7 @@
           "name": "Hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '2'"
+            "select :*,* where occupancy_health = '2'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -150,7 +150,7 @@
           "name": "Hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '3'"
+            "select :*,* where occupancy_health = '3'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -217,7 +217,7 @@
           "name": "Hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '1'"
+            "select :*,* where ventilators_use_health = '1'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -236,7 +236,7 @@
           "name": "Hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '2'"
+            "select :*,* where ventilators_use_health = '2'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -255,7 +255,7 @@
           "name": "Hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '3'"
+            "select :*,* where ventilators_use_health = '3'"
           ],
           "column": "npi",
           "aggregate_type": "count",
