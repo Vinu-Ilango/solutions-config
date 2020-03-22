@@ -65,7 +65,7 @@
           "name": "Hospitals Missing Reports",
           "primary_metric name": "Hospitals",
           "parent_queries": [
-              "select * where last_updated_ts is null"
+              "select :*,* where last_updated_ts is null"
               ],
           "column": "npi",
           "start_date_override_and_ignore": "true",
