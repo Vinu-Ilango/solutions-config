@@ -439,9 +439,9 @@
           "parent_queries": [
             "select * where type = 'Confirmed'"
           ],
-          "column": "count",
+          "column": "max(count)",
           "start_date_override_and_ignore": "true",
-          "aggregate_type": "max",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "cases",
