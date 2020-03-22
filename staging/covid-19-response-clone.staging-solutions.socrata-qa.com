@@ -371,7 +371,7 @@
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "case(case_reported_72_hours = true, 1, true, 0)",
+          "column": "case(case_reported_72_hours = "true", 1, true, 0)",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
@@ -388,7 +388,7 @@
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "(sum(case(case_reported_72_hours = true, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(case_reported_72_hours = "true", 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -405,7 +405,7 @@
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "case(case_reported_72_hours = false, 1, true, 0)",
+          "column": "case(case_reported_72_hours = "false", 1, true, 0)",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
@@ -422,7 +422,7 @@
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "(sum(case(case_reported_72_hours = false, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(case_reported_72_hours = "false", 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
