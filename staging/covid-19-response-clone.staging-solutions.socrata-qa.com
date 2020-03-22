@@ -321,7 +321,7 @@
         {
           "name": "% of Hospitals Submitting Within 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -337,7 +337,7 @@
         {
           "name": "% of Hospitals Submitting Within 48 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -353,7 +353,7 @@
         {
           "name": "% of Hospitals Submitting Within 72 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
