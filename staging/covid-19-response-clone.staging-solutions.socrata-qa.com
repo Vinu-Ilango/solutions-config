@@ -460,8 +460,8 @@
           "name": "State"
         },
         {
-          "column": "Last Submission",
-          "name": "last_updated_ts"
+          "column": "last_updated_ts",
+          "name": "Last Submission"
         }
       ],
       "quick_filter_entries": [
