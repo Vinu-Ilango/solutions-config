@@ -33,11 +33,14 @@
     {
       "name": "COVID-19 Response",
       "description": "",
-      "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "6ide-cs9c",
+      "dataset_domain": "elumitas.test-socrata.com",
+      "dataset_id": "99hv-bkmr",
+      "notes_dataset_id": "q9jh-eg7s",
+      "notes_dataset_join_column": "hospital_id",
+      "parent_dataset_join_column": "npi",
       "parent_queries": [],
       "fields": {
-        "date_column": "last_update_date",
+        "date_column": "last_updated_ts",
         "incident_type": "classification",
         "location": "geocoded_column",
         "mquc-phjc": ":@computed_region_mquc_phjc",
@@ -93,7 +96,7 @@
           }
         },
         {
-          "name": "# of hospitals with GREEN Occupancy Health",
+          "name": "Hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
             "select * where occupancy_health = '1'"
@@ -112,7 +115,7 @@
           }
         },
         {
-          "name": "# of hospitals with YELLOW Occupancy Health",
+          "name": "Hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
             "select * where occupancy_health = '2'"
@@ -131,7 +134,7 @@
           }
         },
         {
-          "name": "# of hospitals with RED Occupancy Health",
+          "name": "Hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
             "select * where occupancy_health = '3'"
@@ -198,7 +201,7 @@
           }
         },
         {
-          "name": "# of hospitals with GREEN Ventilator Health",
+          "name": "Hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '1'"
@@ -217,7 +220,7 @@
           }
         },
         {
-          "name": "# of hospitals with YELLOW Ventilator Health",
+          "name": "Hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '2'"
@@ -236,7 +239,7 @@
           }
         },
         {
-          "name": "# of hospitals with RED Ventilator Health",
+          "name": "Hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
             "select * where ventilators_use_health = '3'"
@@ -351,7 +354,7 @@
           }
         },
         {
-          "name": "# of hospitals that have reported cases in the last 72 hours",
+          "name": "Hospitals that have reported cases in the last 72 hours",
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
@@ -385,7 +388,7 @@
           }
         },
         {
-          "name": "# of hospitals that have not reported cases in the last 72 hours",
+          "name": "Hospitals that have not reported cases in the last 72 hours",
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
@@ -420,6 +423,11 @@
         }
       ],
       "filter_by_entries": [
+        {
+          "name": "Assignee",
+          "column": "notes_assignee"
+        }
+
       ],
       "leaf_page_entries": [
         {
@@ -435,7 +443,13 @@
           "name": "State"
         }
       ],
-      "quick_filter_entries": [],
+      "quick_filter_entries": [
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+          "renderType": "text"
+        }   
+      ],
       "map": {
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
