@@ -461,9 +461,9 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * where country_region = 'US' and type = 'Confirmed'"
+            "select sum(`count`) AS sum_cases where country_region = 'US' and type = 'Confirmed' GROUP BY country_region, date_trunc_ymd(`date`)"
           ],
-          "column": "count",
+          "column": "sum_cases",
           "aggregate_type": "max",
           "precision": "0",
           "prefix": "",
