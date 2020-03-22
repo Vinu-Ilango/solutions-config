@@ -371,8 +371,8 @@
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
-          "aggregate_type": "",
+          "column": "case(case_reported_72_hours = true, 1, true, 0)",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
@@ -405,8 +405,8 @@
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "sum(case(case_reported_72_hours = false, 1, true, 0))",
-          "aggregate_type": "",
+          "column": "case(case_reported_72_hours = false, 1, true, 0)",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
