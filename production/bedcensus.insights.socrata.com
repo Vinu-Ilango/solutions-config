@@ -1,6 +1,6 @@
 {
   "application_use": "live",
-  "is_private": "false",
+  "is_private": "true",
   "solutions_app_users": [
     "*@elumitas.com",
     "*@tylertech.com",
@@ -570,23 +570,12 @@
       "dataset_id": "263t-cwk5",
       "parent_queries": [],
       "fields": {
-        "date_column": "date",
-        "incident_type": "type",
-        "location": "geocoded_column",
-        "mquc-phjc": "@computed_region_mquc_phjc"
+        "date_column": "date"
       },
       "dimension_entries": [
         {
-          "column": "country_region",
-          "name": "Country"
-        },
-        {
-          "column": "Province or State",
-          "name": "province_state"
-        },
-        {
-          "column": "type",
-          "name": "type"
+          "column": "state",
+          "name": "State"
         }
       ],
       "view_entries": [
