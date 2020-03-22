@@ -20,8 +20,7 @@
     }
   ],
   "date": {
-    "startDate": "2000-1-1",
-    "endDate": "2020-03-20"
+    "startDate": "2000-3-1"
   },
   "street_view_map_key": "AIzaSyB17sR2sKWfEcfsXwq_EKH4_J4DKuZ3y6I",
   "tag_list": [
@@ -66,7 +65,7 @@
           "name": "Hospitals Missing Reports",
           "primary_metric name": "Hospitals",
           "parent_queries": [
-              "select * where last_updated_ts is null"
+              "select :*,* where last_updated_ts is null"
               ],
           "column": "npi",
           "start_date_override_and_ignore": "true",
@@ -96,10 +95,24 @@
           }
         },
         {
+          "name": "Hospitals Reporting",
+          "primary_metric name": "Hospitals",
+          "column": "npi",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [],
+          "visualization": {
+            "default_view": "overtime",
+            "snapshot": {}
+          }
+        },
+        {
           "name": "Hospitals with GREEN Occupancy Health",
           "primary_metric name": "Hospitals with green occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '1'"
+            "select :*,* where occupancy_health = '1'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -118,7 +131,7 @@
           "name": "Hospitals with YELLOW Occupancy Health",
           "primary_metric name": "Hospitals with yellow occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '2'"
+            "select :*,* where occupancy_health = '2'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -137,7 +150,7 @@
           "name": "Hospitals with RED Occupancy Health",
           "primary_metric name": "Hospitals with red occupancy",
           "parent_queries": [
-            "select * where occupancy_health = '3'"
+            "select :*,* where occupancy_health = '3'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -204,7 +217,7 @@
           "name": "Hospitals with GREEN Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '1'"
+            "select :*,* where ventilators_use_health = '1'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -223,7 +236,7 @@
           "name": "Hospitals with YELLOW Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '2'"
+            "select :*,* where ventilators_use_health = '2'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -242,7 +255,7 @@
           "name": "Hospitals with RED Ventilator Health",
           "primary_metric name": "Hospitals with red ventilator health",
           "parent_queries": [
-            "select * where ventilators_use_health = '3'"
+            "select :*,* where ventilators_use_health = '3'"
           ],
           "column": "npi",
           "aggregate_type": "count",
@@ -308,7 +321,7 @@
         {
           "name": "% of Hospitals Submitting Within 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -324,7 +337,7 @@
         {
           "name": "% of Hospitals Submitting Within 48 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -340,7 +353,7 @@
         {
           "name": "% of Hospitals Submitting Within 72 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "(sum(case(date_diff_d(today, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -358,8 +371,8 @@
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "sum(case(case_reported_72_hours = true, 1, true, 0))",
-          "aggregate_type": "",
+          "column": "case(case_reported_72_hours = 'true', 1, true, 0)",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
@@ -375,7 +388,7 @@
           "primary_metric name": "Cases reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "(sum(case(case_reported_72_hours = true, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(case_reported_72_hours = 'true', 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -392,8 +405,8 @@
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "sum(case(case_reported_72_hours = false, 1, true, 0))",
-          "aggregate_type": "",
+          "column": "case(case_reported_72_hours = 'false', 1, true, 0)",
+          "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
           "suffix": "hospitals",
@@ -409,7 +422,7 @@
           "primary_metric name": "Cases not reported - last 72 hours",
           "parent_queries": [
           ],
-          "column": "(sum(case(case_reported_72_hours = false, 1, true, 0))/count(npi))*100",
+          "column": "(sum(case(case_reported_72_hours = 'false', 1, true, 0))/count(npi))*100",
           "aggregate_type": "",
           "precision": "2",
           "prefix": "",
@@ -426,6 +439,10 @@
         {
           "name": "Assignee",
           "column": "notes_assignee"
+        },
+        {
+          "name": "Entity Type Code",
+          "column": "entity_type_code"
         }
 
       ],
@@ -441,6 +458,10 @@
         {
           "column": "provider_business_mailing_1",
           "name": "State"
+        },
+        {
+          "column": "last_updated_ts",
+          "name": "Last Submission"
         }
       ],
       "quick_filter_entries": [
@@ -448,7 +469,17 @@
           "name": "Noted Assignee",
           "column": "notes_assignee",
           "renderType": "text"
-        }   
+        },
+        {
+          "name": "Total Bed Capacity",
+          "column": "total_bed_capacity",
+          "renderType": "number"
+        },
+        {
+          "name": "Total CC Bed Capacity",
+          "column": "total_bed_capacity_cc",
+          "renderType": "number"
+        }
       ],
       "map": {
         "centerLat": "34.263423913021555",
