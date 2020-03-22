@@ -152,8 +152,8 @@
           }
         },
         {
-          "name": "Submitting Hospitals with Low Reported Occupancy",
-          "primary_metric name": "Hospitals with low occupancy",
+          "name": "Submitting Hospitals with High Reported Occupancy",
+          "primary_metric name": "Hospitals with High occupancy",
           "parent_queries": [
             "select :*,* where occupancy_health = '3'"
           ],
