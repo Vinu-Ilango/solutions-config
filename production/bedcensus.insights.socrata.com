@@ -503,7 +503,6 @@
         {
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
-          "start_date_override_and_ignore": "true",
           "parent_queries": [
             "select :*, * WHERE country_region='US'"
           ],
