@@ -168,7 +168,7 @@
             "date_column": "filingdate"
           },
           "parent_queries": [
-            "select *, :@computed_region_bve8_xnew, geocoded_column,case(applied_to_issued < 30, 1) as less_than_30_count where applied_to_issued is not null"
+            "select *, :@computed_region_bve8_xnew,case(applied_to_issued < 30, 1) as less_than_30_count where applied_to_issued is not null"
           ],
           "target_entries": [{
               "name": "SLA Met",
