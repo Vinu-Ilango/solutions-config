@@ -413,7 +413,7 @@
         "centerLat": "38.86977135801689",
         "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "1.5",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
@@ -561,7 +561,7 @@
         "centerLat": "38.86977135801689",
         "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "1.5",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
