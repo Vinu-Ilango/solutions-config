@@ -1528,6 +1528,58 @@
           }
         },
         {
+          "name": "Domestic Relations Cases With Time To Disposition < 60 Days",
+          "column": "timetodisposition_flag",
+          "aggregate_type": "sum",
+          "use_dimension_value": "true",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "parent_queries": [
+            "select * where casecategorydescription = 'Domestic Relations'",
+            "select  *, case(timetodisposition <= 60, 1, true, 0) as timetodisposition_flag"
+          ],
+          "fields": {
+            "date_column": "lastopeneddate"
+          },
+          "tags": [
+            "Time to Disposition"
+          ],
+          "target_entries": [
+            {
+              "name": "On track",
+              "color": "#259652",
+              "operator": ">=",
+              "value": "75",
+              "icon": "icons-check-circle"
+            },
+            {
+              "name": "Off track",
+              "color": "#e31219",
+              "icon": "icons-times-circle"
+            }
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {
+              "chart_type": "groupChart",
+              "barchart": {
+                "secondary_metric_entries": [
+                  {
+                    "column": "casetypedescription",
+                    "name": "Case Type",
+                    "aggregate_type": "",
+                    "render_type": "stack",
+                    "prefix": "",
+                    "suffix": "",
+                    "precision": ""
+                  }
+                ]
+              }
+            }
+          }
+        },
+        {
           "name": "Number of Cases With Time To Disposition < 60 Days",
           "column": "timetodisposition_flag",
           "aggregate_type": "sum",
