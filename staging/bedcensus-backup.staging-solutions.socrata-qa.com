@@ -407,7 +407,7 @@
           "name": "Last Called",
           "column": "notes_last_called",
           "renderType": "date"
-        },
+        }
       ],
       "map": {
         "centerLat": "34.263423913021555",
