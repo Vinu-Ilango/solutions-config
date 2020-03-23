@@ -402,6 +402,11 @@
           "name": "Total CC Bed Capacity",
           "column": "total_bed_capacity_cc",
           "renderType": "number"
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+          "renderType": "date"
         }
       ],
       "map": {
