@@ -491,6 +491,10 @@
       },
       "dimension_entries": [
         {
+          "column": "country_region",
+          "name": "Country"
+        },
+        {
           "column": "province_state",
           "name": "Province or State"
         },
@@ -503,7 +507,10 @@
         {
           "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
-          "column": "delta",
+          "parent_queries": [
+            "select :*, * WHERE type='Confirmed'"
+          ],
+          "column": "cases",
           "start_date_override_and_ignore": "true",
           "aggregate_type": "sum",
           "precision": "0",
@@ -527,8 +534,8 @@
         {
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
-          "paźent_queries": [
-            "select :*, * WHERE country_region='US'"
+          "parent_queries": [
+            "select :*, * WHERE country_region='US' and type='Confirmed'"
           ],
           "column": "cases",
           "aggregate_type": "sum",
