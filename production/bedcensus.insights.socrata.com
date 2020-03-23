@@ -520,7 +520,8 @@
               "default_view": "choropleth"
             },
             "overtime": {
-              "show_area_chart": "true"
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true"
             }
           }
         }
