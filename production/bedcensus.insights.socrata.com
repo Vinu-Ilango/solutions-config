@@ -402,13 +402,18 @@
           "name": "Total CC Bed Capacity",
           "column": "total_bed_capacity_cc",
           "renderType": "number"
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+          "renderType": "date"
         }
       ],
       "map": {
-        "centerLat": "34.263423913021555",
-        "centerLng": "-90.42980668901862",
+        "centerLat": "38.86977135801689",
+        "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "2.5",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
@@ -556,7 +561,7 @@
         "centerLat": "38.86977135801689",
         "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "2",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
