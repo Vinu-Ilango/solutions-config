@@ -472,6 +472,131 @@
           "color": "#add8e6"
         }
       ]
+    },
+        {
+      "name": "COVID-19 Spread",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "e2g5-hvty",
+      "fields": {
+        "date_column": "date",
+        "incident_type": "type",
+        "location": "geocoded_column",
+        "mquc-phjc": ":@computed_region_mquc_phjc"
+      },
+      "dimension_entries": [
+        {
+          "column": "province_state",
+          "name": "Province or State"
+        },
+        {
+          "column": "type",
+          "name": "type"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "US Confirmed COVID Cases",
+          "primary_metric name": "US COVID Cases",
+          "parent_queries": [
+            "select :*, * WHERE country_region='US'"
+          ],
+          "column": "delta",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "map",
+            "map": {
+              "default_view": "choropleth"
+            },
+            "overtime": {
+              "show_area_chart": "true"
+            }
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Country",
+          "column": "country_region"
+        },
+        {
+          "name": "Type",
+          "column": "type"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "country_region",
+          "name": "Country or Region"
+        },
+        {
+          "column": "province_state",
+          "name": "Province or State"
+        },
+        {
+          "column": "type",
+          "name": "Type"
+        },
+        {
+          "column": "date",
+          "name": "Date"
+        },
+        {
+          "column": "count",
+          "name": "Count"
+        }
+      ],
+      "map": {
+        "centerLat": "38.86977135801689",
+        "centerLng": "-95.70921977321967",
+        "zoom": "3.2",
+        "mini_map_zoom": "2",
+        "shapes_outline_highlight_width": "2",
+        "shapes_outline_width": "1.5",
+        "style_entries": [
+          {
+            "name": "Street",
+            "style": "mapbox://styles/mapbox/streets-v10"
+          },
+          {
+            "name": "Light",
+            "style": "mapbox://styles/mapbox/light-v9"
+          },
+          {
+            "name": "Dark",
+            "style": "mapbox://styles/mapbox/dark-v9"
+          },
+          {
+            "name": "Satelite",
+            "style": "mapbox://styles/mapbox/satellite-v9"
+          },
+          {
+            "name": "Outdoors",
+            "style": "mapbox://styles/mapbox/outdoors-v10"
+          }
+        ]
+      },
+      "shape_dataset_entries": [
+        {
+          "shape_dataset_domain": "covid-19-response.demo.socrata.com",
+          "shape_dataset_id": "mquc-phjc",
+          "shape_name": "US States",
+          "fields": {
+            "shape": "the_geom",
+            "shape_id": "_feature_id",
+            "shape_name": "name",
+            "shape_description": "name"
+          },
+          "color": "#add8e6"
+        }
+      ],
+      "shape_outline_dataset_entries": []
     }
   ]
 }
