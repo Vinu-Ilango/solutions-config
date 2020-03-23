@@ -11,6 +11,8 @@
   ],
   "show_share_via_email": "false",
   "is_private": "false",
+  "solutions_app_users": [
+  ],
   "date": {
     "startDate": "2019-10-01",
     "endDate": "2019-12-31"
