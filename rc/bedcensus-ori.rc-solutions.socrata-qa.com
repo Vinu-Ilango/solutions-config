@@ -501,12 +501,36 @@
       ],
       "view_entries": [
         {
+          "name": "Global Confirmed COVID Cases",
+          "primary_metric name": "Global COVID Cases",
+          "column": "delta",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "overtime",
+            "map": {
+              "default_view": "choropleth"
+            },
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        },
+        {
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
-          "parent_queries": [
+          "paźent_queries": [
             "select :*, * WHERE country_region='US'"
           ],
-          "column": "delta",
+          "column": "cases",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
