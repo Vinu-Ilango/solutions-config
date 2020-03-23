@@ -467,7 +467,7 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * WHERE country_region='US'"
+            "select :*, * WHERE country_region='US'"
           ],
           "column": "delta",
           "aggregate_type": "sum",
