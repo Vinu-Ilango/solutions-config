@@ -30,10 +30,70 @@
   "street_view_map_key": "AIzaSyB17sR2sKWfEcfsXwq_EKH4_J4DKuZ3y6I",
   "tag_list": [
     "Hospital Health",
-    "Submission Tracking",
-    "COVID-19 Spread"
+    "Submission Tracking"
   ],
   "template_entries": [
+    {
+      "name": "Notes & Assignments",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "8tv7-b3ra",
+      "fields": {
+        "date_column": "last_called"
+      },
+      "dimension_entries": [
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "Hospitals Called",
+          "primary_metric name": "Hospitals Called",
+          "column": "hospital_id",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "count",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "hospitals",
+          "tags": [
+            "Submission Tracking"
+          ],
+          "visualization": {
+            "default_view": "table"
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "Assignee",
+          "column": "assignee"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "hospital_id",
+          "name": "Hospital ID"
+        },
+        {
+          "column": "assignee",
+          "name": "Assignee"
+        },
+        {
+          "column": "message",
+          "name": "Notes"
+        },
+        {
+          "column": "last_called",
+          "name": "Last Called"
+        }
+      ]
+    },
     {
       "name": "COVID-19 Response",
       "description": "",
@@ -342,13 +402,18 @@
           "name": "Total CC Bed Capacity",
           "column": "total_bed_capacity_cc",
           "renderType": "number"
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+          "renderType": "date"
         }
       ],
       "map": {
-        "centerLat": "34.263423913021555",
-        "centerLng": "-90.42980668901862",
+        "centerLat": "38.86977135801689",
+        "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "2.5",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
@@ -413,26 +478,21 @@
         }
       ]
     },
-    {
+        {
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "388n-8tsy",
-      "parent_queries": [],
+      "dataset_id": "ui9r-vggn",
       "fields": {
         "date_column": "date",
         "incident_type": "type",
-        "location": "geocoded_column",
-        "mquc-phjc": "@computed_region_mquc_phjc"
+        "location": "geolocation",
+        "mquc-phjc": ":@computed_region_mquc_phjc"
       },
       "dimension_entries": [
         {
-          "column": "country_region",
-          "name": "Country"
-        },
-        {
-          "column": "Province or State",
-          "name": "province_state"
+          "column": "province_state",
+          "name": "Province or State"
         },
         {
           "column": "type",
@@ -441,37 +501,12 @@
       ],
       "view_entries": [
         {
-          "name": "Global Confirmed COVID Cases",
-          "primary_metric name": "Global COVID Cases",
-          "parent_queries": [
-            "select * where type = 'Confirmed'"
-          ],
-          "column": "count",
-          "start_date_override_and_ignore": "true",
-          "aggregate_type": "max",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "cases",
-          "tags": [
-            "COVID-19 Spread"
-          ],
-          "visualization": {
-            "default_view": "overtime",
-            "overtime": {
-              "show_area_chart": "true",
-              "show_burn_up_chart": "true",
-              "default_view": "burn_up"
-            }
-          }
-        },
-        {
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "SELECT `count`, `type`, `date`, province_state, country_region, geocoded_column, max(`date`) over (partition by country_region, province_state) AS last_date WHERE country_region = 'US' and (type ='Confirmed' OR type='Death')",
-            "SELECT `count`, `type`, `date`, province_state, country_region, geocoded_column WHERE `date` >= last_date"
+            "select :*, * WHERE country_region='US'"
           ],
-          "column": "count",
+          "column": "delta",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
@@ -481,8 +516,13 @@
           ],
           "visualization": {
             "default_view": "map",
+            "map": {
+              "default_view": "choropleth"
+            },
             "overtime": {
-              "show_area_chart": "true"
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
             }
           }
         }
@@ -520,10 +560,10 @@
         }
       ],
       "map": {
-        "centerLat": "34.263423913021555",
-        "centerLng": "-90.42980668901862",
+        "centerLat": "38.86977135801689",
+        "centerLng": "-95.70921977321967",
         "zoom": "3.2",
-        "mini_map_zoom": "2.5",
+        "mini_map_zoom": "1.8",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
@@ -562,68 +602,8 @@
           },
           "color": "#add8e6"
         }
-      ]
-    },
-    {
-      "name": "Notes & Assignments",
-      "description": "",
-      "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "8tv7-b3ra",
-      "fields": {
-        "date_column": "last_called"
-      },
-      "dimension_entries": [
-        {
-          "column": "assignee",
-          "name": "Assignee"
-        },
-        {
-          "column": "hospital_id",
-          "name": "Hospital ID"
-        }
       ],
-      "view_entries": [
-        {
-          "name": "Hospitals Called",
-          "primary_metric name": "Hospitals Called",
-          "column": "hospital_id",
-          "start_date_override_and_ignore": "true",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "COVID-19 Spread"
-          ],
-          "visualization": {
-            "default_view": "table"
-          }
-        }
-      ],
-      "filter_by_entries": [
-        {
-          "name": "Assignee",
-          "column": "assignee"
-        }
-      ],
-      "leaf_page_entries": [
-        {
-          "column": "hospital_id",
-          "name": "Hospital ID"
-        },
-        {
-          "column": "assignee",
-          "name": "Assignee"
-        },
-        {
-          "column": "message",
-          "name": "Notes"
-        },
-        {
-          "column": "last_called",
-          "name": "Last Called"
-        }
-      ]
+      "shape_outline_dataset_entries": []
     }
   ]
 }
