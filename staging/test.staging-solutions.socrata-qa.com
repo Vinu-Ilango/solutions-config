@@ -1517,7 +1517,7 @@
               "show_area_chart": "true",
               "show_timeline_total": "true",
               "show_burn_up_chart": "true",
-              "default_view": "timeline",
+              "default_view": "burn_up",
               "burn_up": {
                 "show_total": "true",
                 "show_dimensions": "true",
