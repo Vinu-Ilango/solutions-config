@@ -417,7 +417,7 @@
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "4er2-hgrk",
+      "dataset_id": "e2g5-hvty",
       "fields": {
         "date_column": "date",
         "incident_type": "type",
@@ -442,9 +442,6 @@
         {
           "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
-          "parent_queries": [
-            "select * WHERE type = 'Confirmed'"
-          ],
           "column": "delta",
           "start_date_override_and_ignore": "true",
           "aggregate_type": "sum",
@@ -470,7 +467,7 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * WHERE type = 'Confirmed' AND country_region='US'"
+            "select * WHERE country_region='US'"
           ],
           "column": "delta",
           "aggregate_type": "sum",
