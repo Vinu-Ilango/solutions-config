@@ -417,7 +417,7 @@
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "bj8b-wfx5",
+      "dataset_id": "388n-8tsy",
       "fields": {
         "date_column": "date",
         "incident_type": "type",
@@ -443,6 +443,7 @@
           "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
           "parent_queries": [
+            "SELECT date, country_region, province_state, type, count, geocoded_column, :@computed_region_mquc_phjc, :@computed_region_mpe2_7au2, :@computed_region_ctwz_r3ic, :@computed_region_xck7_iyzd, @yest.date AS y_date, @yest.count AS y_count, count-coalesce(@yest.count,0) AS delta LEFT OUTER JOIN @bj8b-wfx5 AS yest ON date_diff_d(date,@yest.date)=1 AND (province_state=@yest.province_state OR (province_state IS null AND @yest.province_state is null)) AND type=@yest.type AND country_region=@yest.country_region ORDER BY country_region, province_state, type, date",
             "select * where type = 'Confirmed'"
           ],
           "column": "delta",
@@ -470,7 +471,8 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * where country_region = 'US' and type = 'Confirmed'"
+            "SELECT date, country_region, province_state, type, count, geocoded_column, :@computed_region_mquc_phjc, :@computed_region_mpe2_7au2, :@computed_region_ctwz_r3ic, :@computed_region_xck7_iyzd, @yest.date AS y_date, @yest.count AS y_count, count-coalesce(@yest.count,0) AS delta LEFT OUTER JOIN @bj8b-wfx5 AS yest ON date_diff_d(date,@yest.date)=1 AND (province_state=@yest.province_state OR (province_state IS null AND @yest.province_state is null)) AND type=@yest.type AND country_region=@yest.country_region ORDER BY country_region, province_state, type, date",
+            "select * where type = 'Confirmed'"
           ],
           "column": "delta",
           "aggregate_type": "sum",
