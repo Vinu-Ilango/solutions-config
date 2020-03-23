@@ -242,7 +242,7 @@
         "centerLat": "30.027284",
         "centerLng": "-89.896482",
         "zoom": "9",
-        "mini_map_zoom": "9",
+        "mini_map_zoom": "8",
         "shapes_outline_highlight_width": "4",
         "style_entries": [{
             "name": "Street",
