@@ -444,7 +444,7 @@
           "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
           "parent_queries": [
-            "select * where type = 'Confirmed'"
+            "select :*,* where type = 'Confirmed'"
           ],
           "column": "count",
           "start_date_override_and_ignore": "true",
@@ -468,7 +468,7 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * where country_region = 'US' and type = 'Confirmed'"
+            "select :*,* where country_region = 'US' and type = 'Confirmed'"
           ],
           "column": "cases",
           "aggregate_type": "max",
