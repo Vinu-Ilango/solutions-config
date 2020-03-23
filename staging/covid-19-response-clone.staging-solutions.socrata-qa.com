@@ -485,7 +485,7 @@
         "centerLat": "34.263423913021555",
         "centerLng": "-90.42980668901862",
         "zoom": "3.2",
-        "mini_map_zoom": "1.5",
+        "mini_map_zoom": "2.5",
         "shapes_outline_highlight_width": "2",
         "shapes_outline_width": "1.5",
         "style_entries": [
