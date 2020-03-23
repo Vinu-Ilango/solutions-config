@@ -68,7 +68,7 @@
             }
           },
           "fields": {
-            "date_column": "issueddate"
+            "date_column": "issuedate"
           }
         },
         {
@@ -108,7 +108,7 @@
           "end_date_override_and_ignore": "true",
           "start_date_boolean_override": "<",
           "parent_queries": [
-            "select *,:@computed_region_bve8_xnew where currentstatus in ('Submitted', 'In Review', 'Application Incomplete', 'Awaiting Payment', 'On Hold', 'Stop Work Order', 'Submitted - Online')"
+            "select *,:@computed_region_bve8_xnew where currentstatus in ('Application Review', 'Plan Review', 'Application Deficiencies', 'Inspection Required')"
           ],
           "tags": [
             "Permitting"
@@ -168,7 +168,7 @@
             "date_column": "filingdate"
           },
           "parent_queries": [
-            "select *, :@computed_region_bve8_xnew, geocoded_column,case(applied_to_issued < 30, 1) as less_than_30_count where applied_to_issued is not null"
+            "select *, :@computed_region_bve8_xnew,case(applied_to_issued < 30, 1) as less_than_30_count where applied_to_issued is not null"
           ],
           "target_entries": [{
               "name": "SLA Met",
