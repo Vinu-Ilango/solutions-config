@@ -239,8 +239,8 @@
       "leaf_page_entries": [
       ],
       "map": {
-        "centerLat": "34.196895,",
-        "centerLng": "-77.876867",
+        "centerLat": "30.027284",
+        "centerLng": "-89.896482",
         "zoom": "9",
         "mini_map_zoom": "9",
         "shapes_outline_highlight_width": "4",
