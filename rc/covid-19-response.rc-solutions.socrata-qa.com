@@ -566,7 +566,8 @@
           },
           "color": "#add8e6"
         }
-      ]
+      ],
+      "shape_outline_dataset_entries": []
     },
     {
       "name": "COVID-19 Testing",
