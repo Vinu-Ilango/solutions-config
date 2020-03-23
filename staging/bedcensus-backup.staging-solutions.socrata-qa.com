@@ -407,6 +407,11 @@
           "name": "Last Called",
           "column": "notes_last_called",
           "renderType": "date"
+        },
+        {
+          "column": "last_updated_ts",
+          "name": "Last Submission",
+          "renderType": "date"
         }
       ],
       "map": {
