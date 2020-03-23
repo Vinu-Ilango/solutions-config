@@ -443,7 +443,7 @@
           "name": "Global Confirmed COVID Cases",
           "primary_metric name": "Global COVID Cases",
           "parent_queries": [
-            "select * WHERE type='Confirmed'"
+            "select * WHERE type = 'Confirmed'"
           ],
           "column": "delta",
           "start_date_override_and_ignore": "true",
@@ -470,7 +470,7 @@
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select * WHERE type ='Confirmed'"
+            "select * WHERE type = 'Confirmed' AND country_region='US'"
           ],
           "column": "delta",
           "aggregate_type": "sum",
