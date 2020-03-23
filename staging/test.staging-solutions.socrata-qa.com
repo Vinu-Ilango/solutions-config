@@ -2,6 +2,7 @@
   "application_use": "demo",
   "is_private": "true",
   "solutions_app_users": ["*@elumitas.com"],
+  "allow_leaf_page_from_table": "true",
   "branding": {
     "browser_title": "Test Solutions Staging",
     "title": "Solutions - Test"
