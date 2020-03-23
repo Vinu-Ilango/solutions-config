@@ -1519,9 +1519,16 @@
               "default_view": "burn_up",
               "burn_up": {
                 "show_total": "true",
-                "show_dimensions": "false",
+                "show_dimensions": "true",
                 "default_show_projection": "true",
-                "default_compare_year": "2015",
+                "default_compare_year": "2017",
+                "default_time_frame": "year_on_year"
+              },
+              "timeline": {
+                "show_total": "true",
+                "show_dimensions": "true",
+                "default_show_projection": "true",
+                "default_compare_year": "2017",
                 "default_time_frame": "year_on_year"
               }
             }
