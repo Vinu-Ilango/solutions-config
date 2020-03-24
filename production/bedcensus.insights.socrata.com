@@ -1,6 +1,6 @@
 {
   "application_use": "live",
-  "is_private": "false",
+  "is_private": "true",
   "solutions_app_users": [
     "*@elumitas.com",
     "*@tylertech.com",
@@ -237,6 +237,24 @@
           "name": "% of Hospitals Submitting - Last 72 Hours",
           "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
           "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(facility_id))",
+          "start_date_override_and_ignore": "true",
+          "end_date_override_and_ignore": "true",
+          "aggregate_type": "",
+          "precision": "2",
+          "prefix": "",
+          "suffix": "%",
+          "tags": [
+            "Submission Tracking"
+          ],
+          "visualization": {
+            "default_view": "snapshot",
+            "snapshot": {}
+          }
+        },
+        {
+          "name": "% of Submitting Hospitals Reporting COVID Cases",
+          "primary_metric name": "% Hospitals Submitting - COVID Cases",
+          "column": "100*(sum(has_covid_cases)/count(facility_id))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
