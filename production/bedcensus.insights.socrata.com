@@ -56,7 +56,7 @@
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
-          "suffix": "hospitals",
+          "suffix": "call notes",
           "tags": [
             "Submission Tracking"
           ],
