@@ -30,7 +30,8 @@
   "street_view_map_key": "AIzaSyB17sR2sKWfEcfsXwq_EKH4_J4DKuZ3y6I",
   "tag_list": [
     "Hospital Health",
-    "Submission Tracking"
+    "Submission Tracking",
+    "COVID-19 Spread"
   ],
   "template_entries": [
     {
