@@ -14,13 +14,8 @@
   },
   "exploration_card_entries": [
     {
-      "name": "COVID-19 Hospital Data Submission Tracker",
-      "link": "covid-19-beds.projects.socrata.com",
-      "exploration_content": "COVID-19 Response"
-    },
-    {
-      "name": "COVID-19 Hospital Beds Census",
-      "link": "covid-19-beds.projects.socrata.com",
+      "name": "COVID-19 Hospital Data Submission Form",
+      "link": "http://bedcensus.socrata.com/",
       "exploration_content": "COVID-19 Response"
     }
   ],
@@ -99,41 +94,63 @@
       "name": "COVID-19 Response",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "6ide-cs9c",
+      "dataset_id": "ph9w-i8ju",
       "notes_dataset_id": "8tv7-b3ra",
       "notes_dataset_join_column": "hospital_id",
-      "parent_dataset_join_column": "npi",
+      "parent_dataset_join_column": "facility_id",
       "parent_queries": [],
       "fields": {
         "date_column": "last_updated_ts",
-        "incident_type": "classification",
-        "location": "geocoded_column",
+        "incident_type": "responded_in_last_day",
+        "location": "location",
         "mquc-phjc": ":@computed_region_mquc_phjc",
         "ctwz-r3ic": ":@computed_region_ctwz_r3ic",
         "mpe2-7au2": ":@computed_region_mpe2_7au2"
       },
       "dimension_entries": [
         {
-          "column": "classification",
-          "name": "Classification"
+          "column": "hospital_type",
+          "name": "Hospital Type"
+        },
+        {
+          "column": "state",
+          "name": "State"
+        },
+        {
+          "column": "hospital_ownership",
+          "name": "Ownership"
         },
         {
           "column": "provider_organization_name",
-          "name": "Organisation"
+          "name": "Organization"
+        }
+      ],
+      "group_by_entries": [
+        {
+          "column": "responded_in_last_day",
+          "name": "Responded in Last Day"
         },
         {
-          "column": "provider_business_mailing_1",
-          "name": "State"
+          "column": "responded_in_last_three_days",
+          "name": "Responded in Last 3 Days"
+        },
+        {
+          "column": "emergency_services",
+          "name": "Has Emergency Services"
+        },
+        {
+          "column": "hospital_type",
+          "name": "Hospital Type"
         }
       ],
       "view_entries": [
         {
           "name": "Hospitals Missing Reports",
-          "primary_metric name": "Hospitals",
+          "primary_metric name": "Hospitals Missiing Reports",
           "parent_queries": [
             "select :*,* where last_updated_ts is null"
           ],
-          "column": "npi",
+          "column": "facility_id",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "count",
@@ -150,8 +167,8 @@
         },
         {
           "name": "Hospitals Reporting At Least Once in Period",
-          "primary_metric name": "Hospitals",
-          "column": "npi",
+          "primary_metric name": "Hospitals Reporting At Least Once",
+          "column": "facility_id",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
@@ -167,7 +184,7 @@
         {
           "name": "Hospitals Reporting At Least Once in Period",
           "primary_metric name": "Hospitals",
-          "column": "npi",
+          "column": "facility_id",
           "aggregate_type": "count",
           "precision": "0",
           "prefix": "",
@@ -181,114 +198,9 @@
           }
         },
         {
-          "name": "Submitting Hospitals with Low Reported Occupancy",
-          "primary_metric name": "Hospitals with low occupancy",
-          "parent_queries": [
-            "select :*,* where occupancy_health = '1'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Submitting Hospitals with Medium Reported Occupancy",
-          "primary_metric name": "Hospitals with medium occupancy",
-          "parent_queries": [
-            "select :*,* where occupancy_health = '2'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "Submitting Hospitals with High Reported Occupancy",
-          "primary_metric name": "Hospitals with High occupancy",
-          "parent_queries": [
-            "select :*,* where occupancy_health = '3'"
-          ],
-          "column": "npi",
-          "aggregate_type": "count",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "hospitals",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of Submitting Hospitals with Low Reported Occupancy",
-          "primary_metric name": "% of Hospitals with low occupancy",
-          "column": "(sum(case(occupancy_health == 1, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of Submitting Hospitals with Medium Reported Occupancy",
-          "primary_metric name": "% of Hospitals with medium occupancy",
-          "column": "(sum(case(occupancy_health == 2, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
-          "name": "% of Submitting Hospitals with High Reported Occupancy",
-          "primary_metric name": "Hospitals with high reported occupancy",
-          "column": "(sum(case(occupancy_health == 3, 1, true, 0))/count(npi))*100",
-          "aggregate_type": "",
-          "precision": "2",
-          "prefix": "",
-          "suffix": "%",
-          "tags": [
-            "Hospital Health"
-          ],
-          "visualization": {
-            "default_view": "snapshot",
-            "snapshot": {}
-          }
-        },
-        {
           "name": "% of Hospitals Submitting - Last 24 Hours",
           "primary_metric name": "Data Submission - Last 24 Hours",
-          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(npi))",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 1, 1, true, 0))/count(facility_id))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -306,7 +218,7 @@
         {
           "name": "% of Hospitals Submitting - Last 48 Hours",
           "primary_metric name": "Data Submission - Last 48 Hours",
-          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(npi))",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 2, 1, true, 0))/count(facility_id))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -324,7 +236,7 @@
         {
           "name": "% of Hospitals Submitting - Last 72 Hours",
           "primary_metric name": "% Hospitals Submitting - Last 72 Hours",
-          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(npi))",
+          "column": "100*(sum(case(date_diff_d({TODAY}, last_updated_ts) <= 3, 1, true, 0))/count(facility_id))",
           "start_date_override_and_ignore": "true",
           "end_date_override_and_ignore": "true",
           "aggregate_type": "",
@@ -342,66 +254,82 @@
       ],
       "filter_by_entries": [
         {
-          "name": "Assignee",
-          "column": "notes_assignee"
+          "name": "Has Emergency Services",
+          "column": "emergency_services"
         },
         {
-          "name": "Entity Type Code",
-          "column": "entity_type_code"
+          "name": "National Mortality Comparison",
+          "column": "mortality_national_comparison"
+        },
+        {
+          "name": "Medical Services Efficiency",
+          "column": "efficient_use_of_medical"
+        },
+        {
+          "name": "Last Updated",
+          "column": "last_updated_ts"
         }
       ],
       "leaf_page_entries": [
         {
-          "column": "classification",
-          "name": "Classification"
+          "column": "facility_id",
+          "name": "Facility ID"
         },
         {
-          "column": "provider_organization_name",
-          "name": "Organisation"
+          "column": "facility_name",
+          "name": "Facility Name"
         },
         {
-          "column": "provider_business_mailing_1",
+          "column": "address",
+          "name": "Address"
+        },
+        {
+          "column": "city",
+          "name": "City"
+        },
+        {
+          "column": "state",
           "name": "State"
         },
         {
-          "column": "last_updated_ts",
-          "name": "Last Submission"
+          "column": "hospital_type",
+          "name": "Hospital Type"
         },
         {
-          "column": "last_updated_ts",
-          "name": "Last Submission"
-        },
-        {
-          "column": "last_updated_ts",
-          "name": "Last Submission"
+          "column": "hospital_ownership",
+          "name": "Hospital Ownership"
         },
         {
           "column": "user_id",
           "name": "Updating User ID"
         },
         {
-          "column": "full_name",
-          "name": "Authorized User Name"
+          "column": "phone_number",
+          "name": "Updating User Phone Number"
         },
         {
-          "column": "authorized_official_telephone",
+          "column": "last_updated_ts",
+          "name": "Last Updated Time"
+        },
+        {
+          "column": "hospital_phone_number",
           "name": "Authorized Phone Number"
         }
       ],
       "quick_filter_entries": [
         {
-          "name": "Noted Assignee",
-          "column": "notes_assignee",
-          "renderType": "text"
-        },
-        {
-          "name": "Total Bed Capacity",
-          "column": "total_bed_capacity",
+          "name": "Adult Critical Care COVID Cases",
+          "column": "adult_critical_care_covid",
           "renderType": "number"
         },
         {
-          "name": "Total CC Bed Capacity",
-          "column": "total_bed_capacity_cc",
+          "name": "General Acute COVID Cases",
+          "column": "general_acute_covid",
+          "renderType": "number"
+        },
+        {
+          "name": "Sub Acute COVID Cases",
+          "column": "sub_acute_covid",
           "renderType": "number"
         },
         {
@@ -479,7 +407,7 @@
         }
       ]
     },
-      {
+    {
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
