@@ -560,53 +560,65 @@
       "flyout_entries": [
         {
           "column": "npi",
-          "name": "Hospital ID"
+          "name": "Hospital ID",
+          "render_type": "number"
         },
         {
           "name": "Noted Assignee",
           "column": "notes_assignee",
+          "render_type": "text"
         },
         {
           "name": "Last Called",
           "column": "notes_last_called",
+          "render_type": "date"
         },
         {
-          "name": "Last Called",
+          "name": "Notes",
           "column": "notes_message",
+          "render_type": "text"
         }
       ],
       "table_column_entries": [
         {
           "column": "npi",
-          "name": "Hospital ID"
+          "name": "Hospital ID",
+          "render_type": "number"
         },
         {
           "name": "Noted Assignee",
           "column": "notes_assignee",
+          "render_type": "text"
         },
         {
           "name": "Last Called",
           "column": "notes_last_called",
+          "render_type": "date"
         },
         {
-          "name": "Last Called",
+          "name": "Notes",
           "column": "notes_message",
+          "render_type": "text"
         },
         {
           "column": "country_region",
-          "name": "Country or Region"
+          "name": "Country or Region",
+          "render_type": "text"
         },
         {
           "column": "province_state",
-          "name": "Province or State"
+          "name": "Province or State",
+          "render_type": "text"          
         },
         {
           "column": "type",
-          "name": "Type"
+          "name": "Type",
+          "render_type": "text"
         },
         {
           "column": "date",
-          "name": "Date"
+          "name": "Date",
+          "render_type": "date"
         }
       ],
       "map": {
