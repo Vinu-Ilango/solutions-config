@@ -33,7 +33,7 @@
       "name": "Notes & Assignments",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "8tv7-b3ra",
+      "dataset_id": "ep96-4dk4",
       "fields": {
         "date_column": "last_called"
       },
