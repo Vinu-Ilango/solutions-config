@@ -33,7 +33,7 @@
       "name": "Notes & Assignments",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "ep96-4dk4",
+      "dataset_id": "8tv7-b3ra",
       "fields": {
         "date_column": "last_called"
       },
@@ -94,7 +94,7 @@
       "name": "COVID-19 Response",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "ph9w-i8ju",
+      "dataset_id": "ep96-4dk4",
       "notes_dataset_id": "8tv7-b3ra",
       "notes_dataset_join_column": "hospital_id",
       "parent_dataset_join_column": "facility_id",
