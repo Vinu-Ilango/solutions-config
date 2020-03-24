@@ -557,6 +557,58 @@
           "name": "Count"
         }
       ],
+      "flyout_entries": [
+        {
+          "column": "npi",
+          "name": "Hospital ID"
+        },
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_message",
+        }
+      ],
+      "table_column_entries": [
+        {
+          "column": "npi",
+          "name": "Hospital ID"
+        },
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_message",
+        },
+        {
+          "column": "country_region",
+          "name": "Country or Region"
+        },
+        {
+          "column": "province_state",
+          "name": "Province or State"
+        },
+        {
+          "column": "type",
+          "name": "Type"
+        },
+        {
+          "column": "date",
+          "name": "Date"
+        }
+      ],
       "map": {
         "centerLat": "38.86977135801689",
         "centerLng": "-95.70921977321967",
