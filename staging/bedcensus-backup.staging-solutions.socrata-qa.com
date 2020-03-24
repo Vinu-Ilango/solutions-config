@@ -104,6 +104,7 @@
       "parent_dataset_join_column": "npi",
       "history_dataset_id": "pkmh-2b7j",
       "history_dataset_join_column": "hospital_id",
+      "show_configured_table_columns": "true",
       "parent_queries": [],
       "fields": {
         "date_column": "last_updated_ts",
