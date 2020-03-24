@@ -1,7 +1,7 @@
 {
   "branding": {
-    "browser_title": "Court Insights",
-    "title": "Odyssey Court Insights"
+    "browser_title": "Public Safety Insights",
+    "title": "Executive Insights"
   },
   "exploration_card_entries": [
     {
