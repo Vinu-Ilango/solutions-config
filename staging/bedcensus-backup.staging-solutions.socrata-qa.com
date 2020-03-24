@@ -411,7 +411,17 @@
           "renderType": "date"
         }
       ],
-            "flyout_entries": [
+      "flyout_entries": [
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation",
+          "render_type": "text"
+        }, 
+        {
+          "column": "classification",
+          "name": "Classification",
+          "render_type": "text"
+        },
         {
           "column": "npi",
           "name": "Hospital ID",
@@ -439,6 +449,36 @@
           "name": "Hospital ID",
           "render_type": "number"
         },
+                {
+          "column": "classification",
+          "name": "Classification",
+          "render_type": "text"
+        },
+        {
+          "column": "provider_organization_name",
+          "name": "Organisation",
+          "render_type": "text"
+        },
+        {
+          "column": "provider_business_mailing_1",
+          "name": "State",
+          "render_type": "text"
+        },
+        {
+          "column": "last_updated_ts",
+          "name": "Last Submission",
+          "render_type": "date"
+        },
+        {
+          "column": "full_name",
+          "name": "Authorized User Name",
+          "render_type": "text"
+        },
+        {
+          "column": "authorized_official_telephone",
+          "name": "Authorized Phone Number",
+          "render_type": "number"
+        },
         {
           "name": "Noted Assignee",
           "column": "notes_assignee",
@@ -453,26 +493,6 @@
           "name": "Notes",
           "column": "notes_message",
           "render_type": "text"
-        },
-        {
-          "column": "country_region",
-          "name": "Country or Region",
-          "render_type": "text"
-        },
-        {
-          "column": "province_state",
-          "name": "Province or State",
-          "render_type": "text"          
-        },
-        {
-          "column": "type",
-          "name": "Type",
-          "render_type": "text"
-        },
-        {
-          "column": "date",
-          "name": "Date",
-          "render_type": "date"
         }
       ],
       "map": {
