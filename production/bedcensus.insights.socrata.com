@@ -478,18 +478,22 @@
         }
       ]
     },
-        {
+      {
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "e2g5-hvty",
+      "dataset_id": "ui9r-vggn",
       "fields": {
         "date_column": "date",
         "incident_type": "type",
-        "location": "geocoded_column",
+        "location": "geolocation",
         "mquc-phjc": ":@computed_region_mquc_phjc"
       },
       "dimension_entries": [
+        {
+          "column": "country_region",
+          "name": "Country"
+        },
         {
           "column": "province_state",
           "name": "Province or State"
@@ -501,12 +505,39 @@
       ],
       "view_entries": [
         {
+          "name": "Global Confirmed COVID Cases",
+          "primary_metric name": "Global COVID Cases",
+          "parent_queries": [
+            "select :*, * WHERE type='Confirmed'"
+          ],
+          "column": "cases",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "overtime",
+            "map": {
+              "default_view": "choropleth"
+            },
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        },
+        {
           "name": "US Confirmed COVID Cases",
           "primary_metric name": "US COVID Cases",
           "parent_queries": [
-            "select :*, * WHERE country_region='US'"
+            "select :*, * WHERE country_region='US' and type='Confirmed'"
           ],
-          "column": "delta",
+          "column": "cases",
           "aggregate_type": "sum",
           "precision": "0",
           "prefix": "",
