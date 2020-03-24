@@ -409,6 +409,70 @@
           "renderType": "date"
         }
       ],
+            "flyout_entries": [
+        {
+          "column": "npi",
+          "name": "Hospital ID",
+          "render_type": "number"
+        },
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+          "render_type": "text"
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+          "render_type": "date"
+        },
+        {
+          "name": "Notes",
+          "column": "notes_message",
+          "render_type": "text"
+        }
+      ],
+      "table_column_entries": [
+        {
+          "column": "npi",
+          "name": "Hospital ID",
+          "render_type": "number"
+        },
+        {
+          "name": "Noted Assignee",
+          "column": "notes_assignee",
+          "render_type": "text"
+        },
+        {
+          "name": "Last Called",
+          "column": "notes_last_called",
+          "render_type": "date"
+        },
+        {
+          "name": "Notes",
+          "column": "notes_message",
+          "render_type": "text"
+        },
+        {
+          "column": "country_region",
+          "name": "Country or Region",
+          "render_type": "text"
+        },
+        {
+          "column": "province_state",
+          "name": "Province or State",
+          "render_type": "text"          
+        },
+        {
+          "column": "type",
+          "name": "Type",
+          "render_type": "text"
+        },
+        {
+          "column": "date",
+          "name": "Date",
+          "render_type": "date"
+        }
+      ],
       "map": {
         "centerLat": "38.86977135801689",
         "centerLng": "-95.70921977321967",
@@ -478,7 +542,7 @@
         }
       ]
     },
-        {
+    {
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
@@ -555,70 +619,6 @@
         {
           "column": "count",
           "name": "Count"
-        }
-      ],
-      "flyout_entries": [
-        {
-          "column": "npi",
-          "name": "Hospital ID",
-          "render_type": "number"
-        },
-        {
-          "name": "Noted Assignee",
-          "column": "notes_assignee",
-          "render_type": "text"
-        },
-        {
-          "name": "Last Called",
-          "column": "notes_last_called",
-          "render_type": "date"
-        },
-        {
-          "name": "Notes",
-          "column": "notes_message",
-          "render_type": "text"
-        }
-      ],
-      "table_column_entries": [
-        {
-          "column": "npi",
-          "name": "Hospital ID",
-          "render_type": "number"
-        },
-        {
-          "name": "Noted Assignee",
-          "column": "notes_assignee",
-          "render_type": "text"
-        },
-        {
-          "name": "Last Called",
-          "column": "notes_last_called",
-          "render_type": "date"
-        },
-        {
-          "name": "Notes",
-          "column": "notes_message",
-          "render_type": "text"
-        },
-        {
-          "column": "country_region",
-          "name": "Country or Region",
-          "render_type": "text"
-        },
-        {
-          "column": "province_state",
-          "name": "Province or State",
-          "render_type": "text"          
-        },
-        {
-          "column": "type",
-          "name": "Type",
-          "render_type": "text"
-        },
-        {
-          "column": "date",
-          "name": "Date",
-          "render_type": "date"
         }
       ],
       "map": {
