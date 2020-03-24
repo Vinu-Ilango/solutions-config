@@ -20,7 +20,7 @@
   },
   "template_entries": [
     {
-      "name": "Courts and Justice",
+      "name": "Arrests",
       "description": "",
       "dataset_domain": "pinellasparkpd.data.socrata.com",
       "dataset_id": "2rrd-f7ie",
