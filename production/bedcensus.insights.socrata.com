@@ -20,7 +20,8 @@
     }
   ],
   "date": {
-    "startDate": "2020-3-1"
+    "startDate": "2020-3-1",
+    "endDate": "2020-3-27",
   },
   "street_view_map_key": "AIzaSyB17sR2sKWfEcfsXwq_EKH4_J4DKuZ3y6I",
   "tag_list": [
