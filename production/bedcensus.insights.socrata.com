@@ -119,10 +119,6 @@
         {
           "column": "hospital_ownership",
           "name": "Ownership"
-        },
-        {
-          "column": "provider_organization_name",
-          "name": "Organization"
         }
       ],
       "group_by_entries": [
