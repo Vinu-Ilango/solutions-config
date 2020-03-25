@@ -426,12 +426,10 @@
       "name": "COVID-19 Spread",
       "description": "",
       "dataset_domain": "covid-19-response.demo.socrata.com",
-      "dataset_id": "ui9r-vggn",
+      "dataset_id": "6qhs-2si8",
       "fields": {
         "date_column": "date",
-        "incident_type": "type",
-        "location": "geolocation",
-        "mquc-phjc": ":@computed_region_mquc_phjc"
+        "incident_type": "type"
       },
       "dimension_entries": [
         {
@@ -465,35 +463,6 @@
           ],
           "visualization": {
             "default_view": "overtime",
-            "map": {
-              "default_view": "choropleth"
-            },
-            "overtime": {
-              "show_area_chart": "true",
-              "show_burn_up_chart": "true",
-              "default_view": "burn_up"
-            }
-          }
-        },
-        {
-          "name": "US Confirmed COVID Cases",
-          "primary_metric name": "US COVID Cases",
-          "parent_queries": [
-            "select :*, * WHERE country_region='US' and type='Confirmed'"
-          ],
-          "column": "cases",
-          "aggregate_type": "sum",
-          "precision": "0",
-          "prefix": "",
-          "suffix": "cases",
-          "tags": [
-            "COVID-19 Spread"
-          ],
-          "visualization": {
-            "default_view": "map",
-            "map": {
-              "default_view": "choropleth"
-            },
             "overtime": {
               "show_area_chart": "true",
               "show_burn_up_chart": "true",
@@ -532,6 +501,65 @@
         {
           "column": "count",
           "name": "Count"
+        }
+      ]
+    },
+    {
+      "name": "COVID-19 US Spread",
+      "description": "",
+      "dataset_domain": "covid-19-response.demo.socrata.com",
+      "dataset_id": "ugzw-22pc",
+      "fields": {
+        "date_column": "date",
+        "location": "geolocation",
+        "mquc-phjc": ":@computed_region_mquc_phjc"
+      },
+      "dimension_entries": [
+        {
+          "column": "state",
+          "name": "State"
+        }
+      ],
+      "view_entries": [
+        {
+          "name": "US Total COVID Cases",
+          "primary_metric name": "US COVID Cases",
+          "column": "positive_delta",
+          "start_date_override_and_ignore": "true",
+          "aggregate_type": "sum",
+          "precision": "0",
+          "prefix": "",
+          "suffix": "cases",
+          "tags": [
+            "COVID-19 Spread"
+          ],
+          "visualization": {
+            "default_view": "map",
+            "map": {
+              "default_view": "choropleth"
+            },
+            "overtime": {
+              "show_area_chart": "true",
+              "show_burn_up_chart": "true",
+              "default_view": "burn_up"
+            }
+          }
+        }
+      ],
+      "filter_by_entries": [
+        {
+          "name": "state",
+          "column": "state"
+        }
+      ],
+      "leaf_page_entries": [
+        {
+          "column": "state",
+          "name": "state"
+        },
+        {
+          "column": "date",
+          "name": "Date"
         }
       ],
       "map": {
